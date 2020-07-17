@@ -9,8 +9,8 @@ const Nutshell = (props) => {
 
     const isAuthenticated = () => {
       if (
-        sessionStorage.getItem("credentials") !== null ||
-        localStorage.getItem("credentials") !== null
+        sessionStorage.getItem("activeUser") !== null ||
+        localStorage.getItem("activeUser") !== null
       ) {
         return true;
       } else {
@@ -19,9 +19,10 @@ const Nutshell = (props) => {
     };
     const [hasUser, setHasUser] = useState(isAuthenticated());
     const setUser = (user) => {
-        sessionStorage.setItem("activeUser", JSON.stringify(user));
-        setHasUser(isAuthenticated())
-     }
+      sessionStorage.setItem("activeUser", JSON.stringify(user));
+      setHasUser(isAuthenticated())
+      console.log(hasUser)
+    }
      const clearUser = () => {
        sessionStorage.clear();
        localStorage.clear();
@@ -31,7 +32,6 @@ const Nutshell = (props) => {
     return (
         <>
           <ApplicationViews setUser={setUser} hasUser={hasUser} />
-          <Login setUser={setUser}  {...props} />
         </>
     )
 }

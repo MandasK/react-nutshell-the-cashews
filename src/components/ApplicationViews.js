@@ -7,6 +7,7 @@ import Login from './auth/login';
 const ApplicationViews = props => {
     const hasUser = props.hasUser
     const setUser = props.setUser
+    console.log("hasUser", hasUser)
 
     return (
         <>
@@ -22,7 +23,7 @@ const ApplicationViews = props => {
             <Route
                 path="/Registration"
                 render={props => {
-                    return <Registration />;
+                    return <Registration setUser={setUser} {...props} />;
                 }}
             />
         {/* Dashboard */}

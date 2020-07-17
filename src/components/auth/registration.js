@@ -1,4 +1,4 @@
-import React, { useState }from "react";
+import React, { useState, useEffect }from "react";
 import { Route, Redirect } from "react-router-dom";
 import { Form, Button, Alert} from "react-bootstrap";
 import APIManager from '../Modules/APIManager';
@@ -6,7 +6,13 @@ import APIManager from '../Modules/APIManager';
 
 const Register = (props) => {
     const [credentials, setCredentials] = useState({ email: "", userName: "", password: "", confirmPassword:"" });
-    const allUsers = APIManager.GetAll("users")
+    const [users, setUsers] = useState([])
+    useEffect(()=> {
+      APIManager.GetAll("users")
+      .then((response) => {
+        setUsers(response)
+      })
+    }, [])
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -17,7 +23,7 @@ const Register = (props) => {
         let userNameCheck = true;
         let userEmailCheck = true;
 
-        allUsers.forEach(user => {
+        users.forEach(user => {
             if (user.email === userEmailInputValue) {
                 userEmailCheck = false;
                 if (user.userName === userNameInputValue){
@@ -66,7 +72,7 @@ const Register = (props) => {
           <h2 className="registerWelcome">Nutshell</h2>
 
           <Form onSubmit={handleRegister}>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group >
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 onChange={handleFieldChange}
@@ -75,7 +81,7 @@ const Register = (props) => {
                 placeholder="Enter Email"
               />
             </Form.Group>
-              <Form.Group controlId="formBasicUsername">
+              <Form.Group >
               <Form.Label>Username</Form.Label>
               <Form.Control
                 onChange={handleFieldChange}
@@ -87,7 +93,7 @@ const Register = (props) => {
                 We'll share your email with everyone else.
               </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group>
               <Form.Label>Password</Form.Label>
               <Form.Control
                 onChange={handleFieldChange}
@@ -96,12 +102,12 @@ const Register = (props) => {
                 placeholder="Password"
               />
             </Form.Group>
-            <Form.Group controlId="formBasicConfirmPassword">
+            <Form.Group>
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control
                 onChange={handleFieldChange}
                 type="password"
-                id="confirmPassword"
+                id="confirmedPassword"
                 placeholder="Confirm Password"
               />
             </Form.Group>

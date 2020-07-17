@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { Form, Button, Alert} from "react-bootstrap";
 import APIManager from '../Modules/APIManager';
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({ userName: "", password: "" });
-    const allUsers = APIManager.GetAll("users")
+    const [users, setUsers] = useState([])
+    useEffect(()=> {
+      APIManager.GetAll("users")
+      .then((response) => {
+        setUsers(response)
+      })
+    }, [])
+    // console.log(users);
     
     const handleLogin = (event) => {
         event.preventDefault();
@@ -14,27 +21,34 @@ const Login = (props) => {
         let userNameCheck = false
         let passwordCheck = false
 
-        allUsers.forEach(user => {
+        users.forEach(user => {
+          console.log("user.userName", user.userName)
+          console.log("userNameInput", userNameInputValue)
+          console.log("user.userPassword", user.password)
+          console.log("userPassword", user)
+          
           if (user.userName === userNameInputValue) {
+            console.log("anything")
             userNameCheck = true;
             if (user.password === userPassword) {
+              console.log("anything2")
               passwordCheck = true;
               props.setUser(credentials)
               props.history.push("/Dashboard")
             } 
           } 
+        })
           if (userNameCheck === true) {
-            if (passwordCheck === false) {
+            if (passwordCheck === false) {  
               return <Alert variant='danger'>
                       Password is incorrect.
-                     </Alert>
+                      </Alert>
             }
           } else {
             return <Alert variant='danger'>
                     Username is incorrect.
-                   </Alert>
+                    </Alert>
           }
-        })
         
     }
     const handleFieldChange = (event) => {
@@ -54,7 +68,7 @@ const Login = (props) => {
           <h2 className="loginWelcome">Nutshell</h2>
 
           <Form onSubmit={handleLogin}>
-            <Form.Group controlId="formBasicUsername">
+            <Form.Group>
               <Form.Label>Username</Form.Label>
               <Form.Control
                 onChange={handleFieldChange}
@@ -66,7 +80,7 @@ const Login = (props) => {
                 We'll share your email with everyone else.
               </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group>
               <Form.Label>Password</Form.Label>
               <Form.Control
                 onChange={handleFieldChange}
