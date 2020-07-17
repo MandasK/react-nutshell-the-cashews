@@ -1,14 +1,31 @@
 import React, { useState } from "react";
 import { Route, Redirect } from "react-router-dom";
-import { Form,Button} from "react-bootstrap";
+import { Form, Button, Alert} from "react-bootstrap";
 
 const Login = (props) => {
-    const [credentials, setCredentials] = useState({ email: "", userName: "", password: "" });
+    const [credentials, setCredentials] = useState({ userName: "", password: "" });
+    const allUsers = APIManager.GetAllUsers()
     
     const handleLogin = (event) => {
         event.preventDefault();
-        props.setUser(credentials)
-        props.history.push("/Dashboard")
+        const userNameInputValue = document.getElementById("userName").value
+        const userPassword = document.getElementById("password").value
+        allUsers.forEach(user => {
+          if (user.userName === userNameInputValue) {
+            if (user.password === userPassword) {
+              props.setUser(credentials)
+              props.history.push("/Dashboard")
+            } else {
+              <Alert key='danger' variant='danger'>
+                Incorrect Password
+              </Alert>
+            }
+          } else {
+              <Alert key='danger' variant='danger'>
+                Incorrect Username
+              </Alert>
+          }
+        })
         
     }
     const handleFieldChange = (event) => {
@@ -28,12 +45,13 @@ const Login = (props) => {
           <h2 className="loginWelcome">Nutshell</h2>
 
           <Form onSubmit={handleLogin}>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address/Username</Form.Label>
+            <Form.Group controlId="formBasicUsername">
+              <Form.Label>Username</Form.Label>
               <Form.Control
                 onChange={handleFieldChange}
-                type="email"
-                placeholder="Enter Email/Username"
+                type="text"
+                id="userName"
+                placeholder="Enter Username"
               />
               <Form.Text className="text-muted">
                 We'll share your email with everyone else.
@@ -44,6 +62,7 @@ const Login = (props) => {
               <Form.Control
                 onChange={handleFieldChange}
                 type="password"
+                id="password"
                 placeholder="Password"
               />
             </Form.Group>
