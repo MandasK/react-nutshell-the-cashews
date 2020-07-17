@@ -1,29 +1,38 @@
 import React, { useState } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { Form, Button, Alert} from "react-bootstrap";
+import APIManager from '../Modules/APIManager';
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({ userName: "", password: "" });
-    const allUsers = APIManager.GetAllUsers()
+    const allUsers = APIManager.GetAll("users")
     
     const handleLogin = (event) => {
         event.preventDefault();
         const userNameInputValue = document.getElementById("userName").value
         const userPassword = document.getElementById("password").value
+        let userNameCheck = false
+        let passwordCheck = false
+
         allUsers.forEach(user => {
           if (user.userName === userNameInputValue) {
+            userNameCheck = true;
             if (user.password === userPassword) {
+              passwordCheck = true;
               props.setUser(credentials)
               props.history.push("/Dashboard")
-            } else {
-              <Alert key='danger' variant='danger'>
-                Incorrect Password
-              </Alert>
+            } 
+          } 
+          if (userNameCheck === true) {
+            if (passwordCheck === false) {
+              return <Alert variant='danger'>
+                      Password is incorrect.
+                     </Alert>
             }
           } else {
-              <Alert key='danger' variant='danger'>
-                Incorrect Username
-              </Alert>
+            return <Alert variant='danger'>
+                    Username is incorrect.
+                   </Alert>
           }
         })
         

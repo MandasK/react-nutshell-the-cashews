@@ -1,16 +1,52 @@
 import React, { useState }from "react";
 import { Route, Redirect } from "react-router-dom";
-import { Form,Button} from "react-bootstrap";
+import { Form, Button, Alert} from "react-bootstrap";
+import APIManager from '../Modules/APIManager';
 
 
 const Register = (props) => {
     const [credentials, setCredentials] = useState({ email: "", userName: "", password: "", confirmPassword:"" });
-    
+    const allUsers = APIManager.GetAll("users")
+
     const handleRegister = (event) => {
         event.preventDefault();
-        props.setUser(credentials)
-        APIManager.PushNewUser(credentials)
-        props.history.push("/Dashboard")
+        const userEmailInputValue = document.getElementById("email").value
+        const userNameInputValue = document.getElementById("userName").value
+        const userPasswordValue = document.getElementById("password").value
+        const userConfirmPasswordValue = document.getElementById("confirmedPassword").value
+        let userNameCheck = true;
+        let userEmailCheck = true;
+
+        allUsers.forEach(user => {
+            if (user.email === userEmailInputValue) {
+                userEmailCheck = false;
+                if (user.userName === userNameInputValue){
+                    userNameCheck = false;
+                } 
+            }   
+        })
+            if (userEmailCheck === true) {
+                if (userNameCheck === true) {
+                    if (userPasswordValue === userConfirmPasswordValue) {
+                        props.setUser(credentials)
+                        APIManager.Push("users", credentials)
+                        props.history.push("/Dashboard")
+                    } else {
+                       return <Alert variant='danger'>
+                                Passwords do not match.
+                              </Alert>
+                    }
+                } else {
+                   return <Alert variant='danger'>
+                            Username already in use, please make a new selection.
+                          </Alert>
+                }
+            } else {
+               return <Alert variant='danger'>
+                        Email already in use, please make a new selection.
+                      </Alert>
+            }
+
         
     }
     const handleFieldChange = (event) => {
@@ -82,4 +118,4 @@ const Register = (props) => {
     );
 }
 
-export default register
+export default Register

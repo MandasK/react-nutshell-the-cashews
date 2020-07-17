@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Route, Redirect } from "react-router-dom";
 import Login from "./auth/login";
+import ApplicationViews from './ApplicationViews';
 
 
 
@@ -29,6 +30,7 @@ const Nutshell = (props) => {
     
     return (
         <>
+          <ApplicationViews setUser={setUser} hasUser={hasUser} />
           <Login setUser={setUser}  {...props} />
         </>
     )
