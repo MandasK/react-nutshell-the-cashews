@@ -1,14 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Redirect } from "react-router-dom";
-import { Form,Button} from "react-bootstrap";
+import { Form, Button, Alert} from "react-bootstrap";
+import APIManager from '../Modules/APIManager';
 
 const Login = (props) => {
-    const [credentials, setCredentials] = useState({ email: "", userName: "", password: "" });
+    const [credentials, setCredentials] = useState({ userName: "", password: "" });
+    const [users, setUsers] = useState([])
+    useEffect(()=> {
+      APIManager.GetAll("users")
+      .then((response) => {
+        setUsers(response)
+      })
+    }, [])
+    // console.log(users);
     
     const handleLogin = (event) => {
         event.preventDefault();
-        props.setUser(credentials)
-        props.history.push("/Dashboard")
+        const userNameInputValue = document.getElementById("userName").value
+        const userPassword = document.getElementById("password").value
+        let userNameCheck = false
+        let passwordCheck = false
+
+        users.forEach(user => {
+          console.log("user.userName", user.userName)
+          console.log("userNameInput", userNameInputValue)
+          console.log("user.userPassword", user.password)
+          console.log("userPassword", user)
+          
+          if (user.userName === userNameInputValue) {
+            console.log("anything")
+            userNameCheck = true;
+            if (user.password === userPassword) {
+              console.log("anything2")
+              passwordCheck = true;
+              props.setUser(credentials)
+              props.history.push("/Dashboard")
+            } 
+          } 
+        })
+          if (userNameCheck === true) {
+            if (passwordCheck === false) {  
+              return <Alert variant='danger'>
+                      Password is incorrect.
+                      </Alert>
+            }
+          } else {
+            return <Alert variant='danger'>
+                    Username is incorrect.
+                    </Alert>
+          }
         
     }
     const handleFieldChange = (event) => {
@@ -28,22 +68,24 @@ const Login = (props) => {
           <h2 className="loginWelcome">Nutshell</h2>
 
           <Form onSubmit={handleLogin}>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address/Username</Form.Label>
+            <Form.Group>
+              <Form.Label>Username</Form.Label>
               <Form.Control
                 onChange={handleFieldChange}
-                type="email"
-                placeholder="Enter Email/Username"
+                type="text"
+                id="userName"
+                placeholder="Enter Username"
               />
               <Form.Text className="text-muted">
                 We'll share your email with everyone else.
               </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group>
               <Form.Label>Password</Form.Label>
               <Form.Control
                 onChange={handleFieldChange}
                 type="password"
+                id="password"
                 placeholder="Password"
               />
             </Form.Group>
