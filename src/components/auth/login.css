@@ -1,0 +1,28 @@
+* {
+    background-color: #2b3b3b;
+}
+
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 9rem;
+}
+
+
+
+.btn.btn-custom {
+    background-color: #e37d64;
+    color: #fff7e7;
+}
+
+#userName.form-control {
+    background-color: #fff7e7;
+}
+#password.form-control {
+    background-color: #fff7e7 
+}
+
+.loginWelcome, .card-subtitle, .form-label  {
+    color: #fff7e7; 
+}

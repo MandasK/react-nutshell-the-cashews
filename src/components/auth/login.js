@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Route, Redirect } from "react-router-dom";
-import { Form, Button, Alert} from "react-bootstrap";
 import APIManager from '../Modules/APIManager';
+import { Card, Form, Button } from "react-bootstrap";
+import Alert from 'react-bootstrap/Alert'
+import "./login.css"
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({ userName: "", password: "" });
@@ -40,14 +41,16 @@ const Login = (props) => {
         })
           if (userNameCheck === true) {
             if (passwordCheck === false) {  
-              return <Alert variant='danger'>
-                      Password is incorrect.
-                      </Alert>
+              return (
+                      window.alert("Password is incorrect")
+                      )
             }
           } else {
-            return <Alert variant='danger'>
-                    Username is incorrect.
-                    </Alert>
+            return (
+                    <>
+                    window.alert("username is incorrect")
+                    </>
+                    )
           }
         
     }
@@ -61,11 +64,27 @@ const Login = (props) => {
 
     return (
       <div className="loginContainer">
-        <div className="loginCard">
-          <picture className="loginLogo">
-            <img src="" alt="imgLogo" />
-          </picture>
-          <h2 className="loginWelcome">Nutshell</h2>
+        <Card style={{ width: '60rem' }}>
+          <Card.Body>
+          <Card.Img 
+          className="loginLogo" 
+          src={require("../images/Brendaangel.PNG")} 
+          alt="imgLogo"
+          style={{ width: '20rem' }} />
+          <br></br>
+          <Card.Img 
+          className="loginLogo" 
+          src={require("../images/logo2.png")} 
+          alt="imgLogo"
+          style={{ width: '20rem' }} />
+            
+          
+         <Card.Title className="loginWelcome"> 
+         Welcome to Nutshell
+         </Card.Title>
+         <Card.Subtitle>
+           Your life in a Nutshell.
+         </Card.Subtitle>
 
           <Form onSubmit={handleLogin}>
             <Form.Group>
@@ -89,18 +108,24 @@ const Login = (props) => {
                 placeholder="Password"
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button 
+            className = "loginButton"
+            variant="custom" 
+            type="submit">
               Login
             </Button>
             <Button
+              className = "registerButton"
+              variant= "custom"
               onClick={() => props.history.push("/Registration")}
-              variant="primary"
+              
               type="submit"
             >
               Register
             </Button>
           </Form>
-        </div>
+          </Card.Body>
+        </Card>
       </div>
     );
 }

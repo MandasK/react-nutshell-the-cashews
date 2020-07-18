@@ -24,33 +24,37 @@ const Register = (props) => {
         let userEmailCheck = true;
 
         users.forEach(user => {
-            if (user.email === userEmailInputValue) {
+            if (user.email === userEmailInputValue ) {
                 userEmailCheck = false;
                 if (user.userName === userNameInputValue){
                     userNameCheck = false;
                 } 
             }   
         })
-            if (userEmailCheck === true) {
-                if (userNameCheck === true) {
-                    if (userPasswordValue === userConfirmPasswordValue) {
+        console.log(userEmailCheck )
+        console.log(userNameCheck)
+        console.log(userPasswordValue)
+        console.log(userConfirmPasswordValue)
+            if (userEmailCheck === true && userEmailInputValue !== "") {
+                if (userNameCheck === true && userNameInputValue !== "") {
+                    if (userPasswordValue === userConfirmPasswordValue && userPasswordValue !== "" ) {
                         props.setUser(credentials)
                         APIManager.Push("users", credentials)
                         props.history.push("/Dashboard")
                     } else {
-                       return <Alert variant='danger'>
-                                Passwords do not match.
-                              </Alert>
+                       return (
+                              window.alert("Retry password")
+                              )
                     }
                 } else {
-                   return <Alert variant='danger'>
-                            Username already in use, please make a new selection.
-                          </Alert>
+                   return (
+                          window.alert("retry username")
+                          )
                 }
             } else {
-               return <Alert variant='danger'>
-                        Email already in use, please make a new selection.
-                      </Alert>
+               return (
+                      window.alert("retry email")
+                      )
             }
 
         
