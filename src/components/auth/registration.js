@@ -1,7 +1,7 @@
 import React, { useState, useEffect }from "react";
-import { Route, Redirect } from "react-router-dom";
-import { Form, Button, Alert} from "react-bootstrap";
+import { Form, Button, Card} from "react-bootstrap";
 import APIManager from '../Modules/APIManager';
+import "./registration.css";
 
 
 const Register = (props) => {
@@ -31,10 +31,6 @@ const Register = (props) => {
                 } 
             }   
         })
-        console.log(userEmailCheck )
-        console.log(userNameCheck)
-        console.log(userPasswordValue)
-        console.log(userConfirmPasswordValue)
             if (userEmailCheck === true && userEmailInputValue !== "") {
                 if (userNameCheck === true && userNameInputValue !== "") {
                     if (userPasswordValue === userConfirmPasswordValue && userPasswordValue !== "" ) {
@@ -43,17 +39,17 @@ const Register = (props) => {
                         props.history.push("/Dashboard")
                     } else {
                        return (
-                              window.alert("Retry password")
+                              alert("Retry password")
                               )
                     }
                 } else {
                    return (
-                          window.alert("retry username")
+                          alert("Retry username")
                           )
                 }
             } else {
                return (
-                      window.alert("retry email")
+                      alert("Retry email")
                       )
             }
 
@@ -69,16 +65,19 @@ const Register = (props) => {
 
     return (
       <div className="registerContainer">
-        <div className="registerCard">
-          <picture className="registerLogo">
-            <img src="" alt="imgLogo" />
-          </picture>
-          <h2 className="registerWelcome">Nutshell</h2>
-
-          <Form onSubmit={handleRegister}>
+        <Card className="registrationCard">
+        <Card.Body>
+          <Card.Img 
+          className="registrationLogo" 
+          src={require("../images/logo.png")} 
+          alt="imgLogo" />
+          <Card.Subtitle className="registerWelcome">
+            Please register below.
+          </Card.Subtitle>
+          <Form className="registerForm" onSubmit={handleRegister}>
             <Form.Group >
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
+              <Form.Label className="registerLabel">Email address</Form.Label>
+              <Form.Control className="registerLogin"
                 onChange={handleFieldChange}
                 type="email"
                 id="email"
@@ -86,20 +85,19 @@ const Register = (props) => {
               />
             </Form.Group>
               <Form.Group >
-              <Form.Label>Username</Form.Label>
-              <Form.Control
+              <Form.Label className="registerLabel">Username</Form.Label>
+              <Form.Control className="registerLogin"
                 onChange={handleFieldChange}
                 type="userName"
                 id="userName"
                 placeholder="Enter Username"
               />
               <Form.Text className="text-muted">
-                We'll share your email with everyone else.
               </Form.Text>
             </Form.Group>
             <Form.Group>
-              <Form.Label>Password</Form.Label>
-              <Form.Control
+              <Form.Label className="registerLabel">Password</Form.Label>
+              <Form.Control className="registerLogin"
                 onChange={handleFieldChange}
                 type="password"
                 id="password"
@@ -107,8 +105,8 @@ const Register = (props) => {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
+              <Form.Label className="registerLabel">Confirm Password</Form.Label>
+              <Form.Control className="registerLogin"
                 onChange={handleFieldChange}
                 type="password"
                 id="confirmedPassword"
@@ -116,14 +114,16 @@ const Register = (props) => {
               />
             </Form.Group>
             <Button
+              className="registrationButton"
               onClick={handleRegister}
-              variant="primary"
+              variant= "custom"
               type="submit"
             >
               Register
             </Button>
           </Form>
-        </div>
+          </Card.Body>
+        </Card>
       </div>
     );
 }

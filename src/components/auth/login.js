@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import APIManager from '../Modules/APIManager';
-import { Card, Form, Button } from "react-bootstrap";
-import Alert from 'react-bootstrap/Alert'
+import { Card, Form, Button, Row, Col, } from "react-bootstrap";
 import "./login.css"
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({ userName: "", password: "" });
     const [users, setUsers] = useState([])
+    
     useEffect(()=> {
       APIManager.GetAll("users")
       .then((response) => {
         setUsers(response)
       })
     }, [])
-    // console.log(users);
+    
     
     const handleLogin = (event) => {
         event.preventDefault();
@@ -23,16 +23,13 @@ const Login = (props) => {
         let passwordCheck = false
 
         users.forEach(user => {
-          console.log("user.userName", user.userName)
-          console.log("userNameInput", userNameInputValue)
-          console.log("user.userPassword", user.password)
-          console.log("userPassword", user)
+          
           
           if (user.userName === userNameInputValue) {
-            console.log("anything")
+            
             userNameCheck = true;
             if (user.password === userPassword) {
-              console.log("anything2")
+              
               passwordCheck = true;
               props.setUser(credentials)
               props.history.push("/Dashboard")
@@ -41,15 +38,15 @@ const Login = (props) => {
         })
           if (userNameCheck === true) {
             if (passwordCheck === false) {  
+              
               return (
-                      window.alert("Password is incorrect")
+                alert("Username is incorrect.")
                       )
+              
             }
           } else {
             return (
-                    <>
-                    window.alert("username is incorrect")
-                    </>
+              alert("Password is incorrect")
                     )
           }
         
@@ -64,44 +61,34 @@ const Login = (props) => {
 
     return (
       <div className="loginContainer">
-        <Card style={{ width: '60rem' }}>
+        <Card className="loginCard">
           <Card.Body>
           <Card.Img 
           className="loginLogo" 
-          src={require("../images/Brendaangel.PNG")} 
-          alt="imgLogo"
-          style={{ width: '20rem' }} />
-          <br></br>
-          <Card.Img 
-          className="loginLogo" 
-          src={require("../images/logo2.png")} 
-          alt="imgLogo"
-          style={{ width: '20rem' }} />
-            
-          
+          src={require("../images/logo.png")} 
+          alt="imgLogo" />
          <Card.Title className="loginWelcome"> 
          Welcome to Nutshell
          </Card.Title>
-         <Card.Subtitle>
+         <Card.Subtitle className="loginWelcomeSub">
            Your life in a Nutshell.
          </Card.Subtitle>
 
           <Form onSubmit={handleLogin}>
+          <Row>
+            <Col>
             <Form.Group>
-              <Form.Label>Username</Form.Label>
-              <Form.Control
+              <Form.Label className="loginLabel">Username</Form.Label>
+              <Form.Control className="loginForm"
                 onChange={handleFieldChange}
                 type="text"
                 id="userName"
                 placeholder="Enter Username"
               />
-              <Form.Text className="text-muted">
-                We'll share your email with everyone else.
-              </Form.Text>
             </Form.Group>
             <Form.Group>
-              <Form.Label>Password</Form.Label>
-              <Form.Control
+              <Form.Label className="loginLabel">Password</Form.Label>
+              <Form.Control className="loginForm"
                 onChange={handleFieldChange}
                 type="password"
                 id="password"
@@ -114,6 +101,8 @@ const Login = (props) => {
             type="submit">
               Login
             </Button>
+            </Col>
+            <Col>
             <Button
               className = "registerButton"
               variant= "custom"
@@ -121,8 +110,10 @@ const Login = (props) => {
               
               type="submit"
             >
-              Register
+              Register New Account
             </Button>
+            </Col>
+            </Row>
           </Form>
           </Card.Body>
         </Card>

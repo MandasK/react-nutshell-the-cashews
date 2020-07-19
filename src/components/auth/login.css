@@ -6,23 +6,67 @@
 .loginContainer {
     display: flex;
     justify-content: center;
-    margin-top: 9rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
 }
 
-
-
-.btn.btn-custom {
+.loginButton.btn.btn-custom {
     background-color: #e37d64;
     color: #fff7e7;
+    
+}
+.registerButton.btn.btn-custom {
+    background-color: #e37d64;
+    color: #fff7e7;
+    margin-top: 3.75rem;
+    margin-left: 3rem;
+    width: 80%;
 }
 
-#userName.form-control {
+.loginButton {
+    margin-left: 23rem;
+}
+
+.loginForm.form-control {
     background-color: #fff7e7;
-}
-#password.form-control {
-    background-color: #fff7e7 
+    margin-left: 1rem; 
 }
 
-.loginWelcome, .card-subtitle, .form-label  {
+.loginLabel{
+    margin-left: 1rem;
+}
+
+.loginWelcome.card-title.h5, .loginWelcomeSub.card-subtitle.h6, .loginLabel  {
     color: #fff7e7; 
 }
+
+.loginLogo {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20rem !important;
+}
+
+.loginCard {
+    width: 60rem;
+    border: 2px solid #2b3b3b !important;
+    border-radius: 6px !important;
+    background-color: #2b3b3b !important;
+    box-shadow: 0 4px 8px 0 #888888, 0 6px 20px 0 #888888
+    
+} 
+
+.loginWelcome.card-title.h5, .loginWelcomeSub.card-subtitle.h6 {
+   text-align: center !important;
+}
+.loginWelcome {
+    margin-top: -2rem;
+}
+
+.loginWelcomeSub.card-subtitle.h6 {
+    margin-bottom: 3rem !important;
+}
+
+
+
