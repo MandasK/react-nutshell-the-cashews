@@ -29,18 +29,11 @@ export default {
             body: JSON.stringify(obj)
         })
     },
-<<<<<<< HEAD
-    Delete(str, id){
-        return fetch(`${remoteURL}${str}/${id}`, {
-            method: "DELETE"
-        }).then(result => result.json())
-=======
 
     Delete(str, id){
         return fetch(`${remoteURL}${str}/${id}`, {
             method: 'DELETE'
         })
->>>>>>> master
     }
 
 }

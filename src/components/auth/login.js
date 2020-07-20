@@ -4,11 +4,7 @@ import { Card, Form, Button, Row, Col, } from "react-bootstrap";
 import "./login.css"
 
 const Login = (props) => {
-<<<<<<< HEAD
-    const [credentials, setCredentials] = useState({userName:"" });
-=======
     const [credentials, setCredentials] = useState({ userId: 0 });
->>>>>>> master
     const [users, setUsers] = useState([])
     
     useEffect(()=> {
@@ -35,11 +31,7 @@ const Login = (props) => {
             if (user.password === userPassword) {
               
               passwordCheck = true;
-<<<<<<< HEAD
-              credentials.userId= user.id
-=======
               credentials.userId = user.id
->>>>>>> master
               props.setUser(credentials)
               props.history.push("/Dashboard")
             } 

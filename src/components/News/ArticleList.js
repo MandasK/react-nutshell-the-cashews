@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import {Container, Row, Col} from 'react-bootstrap'
 import APIManager from '../Modules/APIManager';
 import ArticleCard from './ArticleCard';
+import ArticleForm from './ArticleForm'
 
-const ArticleList =() => {
+const ArticleList =(props) => {
     const [articles, setArticles] = useState([]);
     const getArticles = () => {
         return APIManager.GetAll("News").then(articlesFromAPI =>{
@@ -22,12 +23,16 @@ const ArticleList =() => {
        
             <Container>
             {/* Changeable dashboard in this  Col */}
-            <Col className="dashboardCol">
+            <Row className="dashboard">
+                <ArticleForm />
+            </Row>
+            <Row className="dashboardCol">
                {articles.map(article => <ArticleCard
                key={article.id}
                news={article}
-               deleteArticle={deleteArticle} />)}
-            </Col>
+               deleteArticle={deleteArticle}
+               {...props} />)}
+            </Row>
             </Container>
 
         

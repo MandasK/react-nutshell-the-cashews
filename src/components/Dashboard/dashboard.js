@@ -1,13 +1,10 @@
 import React from 'react';
 import { Row, Col, Container } from "react-bootstrap";
 import "./dashboard.css"
-<<<<<<< HEAD
 import ArticleList from "../News/ArticleList"
 
-=======
 import Navbar from "../Navbar/Navbar"
 import FriendsList from "../Friends/FriendList"
->>>>>>> master
 
 const Dashboard = props => {
     const clearUser = () => {

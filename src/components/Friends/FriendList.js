@@ -3,7 +3,7 @@ import APIManager from "../Modules/APIManager"
 import {Button, Modal} from "react-bootstrap"
 import {FriendCard} from "./FriendCard"
 
-const handleFriendModal = (props) => {
+const HandleFriendModal = (props) => {
     return (
       <Modal
         {...props}
@@ -49,7 +49,7 @@ const handleFriendModal = (props) => {
           Add new Friend
         </Button>
   
-        <handleFriendModal
+        <HandleFriendModal
           show={modalShow}
           onHide={() => setModalShow(false)}
         />
