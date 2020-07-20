@@ -6,6 +6,11 @@ export default {
         .then(res=>res.json())
     },
 
+    Get(str,id) {
+        return fetch(`${remoteURL}${str}/${id}`)
+        .then(res => res.json())
+    },
+
     Push(str, obj){
         return fetch(`${remoteURL}${str}`, {
             method:'POST',
@@ -14,6 +19,11 @@ export default {
             },
             body: JSON.stringify(obj)
         })
+    },
+    Delete(str, id){
+        return fetch(`${remoteURL}${str}/${id}`, {
+            method: "DELETE"
+        }).then(result => result.json())
     }
 
 }

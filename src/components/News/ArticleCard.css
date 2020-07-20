@@ -1,0 +1,21 @@
+.articleCard {
+    color: #fff7e7;
+    width: 30rem;
+    border: 2px solid #2b3b3b !important;
+    border-radius: 6px !important;
+    background-color: #2b3b3b !important;
+    box-shadow: 0 4px 8px 0 #888888, 0 6px 20px 0 #888888
+}
+
+.articleLink:hover {
+    color: #e37d64;
+}
+
+.articleLink {
+    color: #fff7e7
+}
+
+.articleDeleteButton.btn.btn-custom {
+    background-color: #e37d64;
+    color: #fff7e7;  
+}

@@ -3,11 +3,11 @@ import { Route, Redirect } from 'react-router-dom';
 import Dashboard from './Dashboard/dashboard';
 import Registration from './auth/registration';
 import Login from './auth/login';
+import ArticleList from './News/ArticleList'
 
 const ApplicationViews = props => {
     const hasUser = props.hasUser
     const setUser = props.setUser
-    console.log("hasUser", hasUser)
 
     return (
         <>
@@ -38,6 +38,17 @@ const ApplicationViews = props => {
                     }
                 }}
             />
+            <Route
+                exact
+                path="/News"
+                render={(props) => {
+                    if(hasUser) {
+                      return <ArticleList {...props} />;
+                    } else {
+                      return <Redirect exact to="/" />  
+                    }
+        }}
+      />
         </>
     )
 }

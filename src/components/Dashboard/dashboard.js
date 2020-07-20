@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Container } from "react-bootstrap";
 import "./dashboard.css"
+import ArticleList from "../News/ArticleList"
 
 
 const Dashboard = props => {
@@ -25,7 +26,7 @@ const Dashboard = props => {
             </Col>
             {/* Changeable dashboard in this  Col */}
             <Col className="dashboardCol">
-                main dashboard
+               <ArticleList />
             </Col>
         </Row>
         </Container>
