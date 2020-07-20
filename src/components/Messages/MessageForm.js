@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import APIManager from '../Modules/APIManager';
 
 const MessageForm = props => {
-    const [message, setMessage] = useState({userId: 0, message:""})
+    const [message, setMessage] = useState({message:""})
 
     const clearInputField = () => {
         let inputField = document.getElementById("message")
@@ -12,23 +12,17 @@ const MessageForm = props => {
     const handleFieldChange = evt => {
         const stateToChange = {...message};
         stateToChange[evt.target.id] = evt.target.value;
-        stateToChange.userId = sessionStorage.activeUser.userId
+        stateToChange.userId = parseInt(sessionStorage.activeUserID)
         setMessage(stateToChange);
     };
 
-    const editMessage = evt => {
-        evt.preventDefault();
-        console.log("editing message")
-        let editedMessageInput = document.querySelector("#message").value
-        APIManager.Push("messages", editedMessageInput)
-    }
 
     const constructNewMessage = evt => {
         evt.preventDefault();
         if (message !== "") {
             APIManager.Push("messages", message)
-            clearInputField();
             props.getMessages()
+            clearInputField();
         } else {
             window.alert("Please enter a message");
         }
@@ -46,12 +40,10 @@ const MessageForm = props => {
                             id="message"
                             placeholder="What's on your mind?"
                         />
-                        <div>
-                            <button
-                                type="button"
-                                onClick={constructNewMessage}
-                            >Post</button>
-                        </div>
+                        <button
+                            type="button"
+                            onClick={constructNewMessage}
+                        >Post</button>
                     </div>
                 </fieldset>
             </form>
