@@ -5,7 +5,10 @@ export default {
         return fetch(`${remoteURL}${str}`)
         .then(res=>res.json())
     },
-
+    Get(str, id) {
+        return fetch(`${remoteURL}${str}/${id}`)
+        .then(res => res.json)
+    },
     Push(str, obj){
         return fetch(`${remoteURL}${str}`, {
             method:'POST',
@@ -14,6 +17,24 @@ export default {
             },
             body: JSON.stringify(obj)
         })
-    }
+    },
 
+    Update(str, id, data){
+        return fetch(`${remoteURL}${str}/${id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+    },
+
+    Delete(str, id, data){
+        return fetch(`${remoteURL}${str}/${id}`, {
+            method:"DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    }
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import MessageList from '../../components/Messages/MessageList';
+import MessageForm from '../../components/Messages/MessageForm';
 import { Row, Col, Container } from "react-bootstrap";
 import "./dashboard.css"
 
@@ -25,7 +27,8 @@ const Dashboard = props => {
             </Col>
             {/* Changeable dashboard in this  Col */}
             <Col className="dashboardCol">
-                main dashboard
+                <MessageList />
+                <MessageForm />
             </Col>
         </Row>
         </Container>
