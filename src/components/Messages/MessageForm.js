@@ -27,10 +27,8 @@ const MessageForm = props => {
         evt.preventDefault();
         if (message !== "") {
             APIManager.Push("messages", message)
-            console.log(message)
-            props.getMessages()
             clearInputField();
-            setMessage(0, "")
+            props.getMessages()
         } else {
             window.alert("Please enter a message");
         }
