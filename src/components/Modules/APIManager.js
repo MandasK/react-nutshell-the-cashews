@@ -5,10 +5,16 @@ export default {
         return fetch(`${remoteURL}${str}`)
         .then(res=>res.json())
     },
-    Get(str, id) {
+    Get(str, id){
         return fetch(`${remoteURL}${str}/${id}`)
-        .then(res => res.json)
+        .then(res=>res.json())
     },
+
+    GetUsersFriends(str){
+        return fetch(`${remoteURL}${str}?activeUserId=${sessionStorage.activeUserID}&_expand=user`)
+        .then(res=>res.json())
+    },
+
     Push(str, obj){
         return fetch(`${remoteURL}${str}`, {
             method:'POST',
@@ -28,13 +34,9 @@ export default {
             body: JSON.stringify(data)
         })
     },
-
-    Delete(str, id, data){
+    Delete(str, id){
         return fetch(`${remoteURL}${str}/${id}`, {
-            method:"DELETE",
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            method: 'DELETE'
         })
     }
 }

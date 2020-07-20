@@ -17,15 +17,12 @@ const Nutshell = (props) => {
     };
     const [hasUser, setHasUser] = useState(isAuthenticated());
     const setUser = (user) => {
-      sessionStorage.setItem("activeUser", JSON.stringify(user));
+      sessionStorage.setItem("activeUserID", JSON.stringify(user.userId));
+      sessionStorage.setItem("activeUser", JSON.stringify(user.userName))
       setHasUser(isAuthenticated())
       console.log(hasUser)
     }
-     const clearUser = () => {
-       sessionStorage.clear();
-       localStorage.clear();
-       setHasUser(isAuthenticated());
-     };
+    
     
     return (
         <>
