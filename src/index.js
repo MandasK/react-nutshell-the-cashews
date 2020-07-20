@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import Nutshell from './components/nutshell';
-import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(
   <Router>
@@ -12,5 +12,3 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-
-serviceWorker.unregister();

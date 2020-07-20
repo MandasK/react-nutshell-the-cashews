@@ -1,7 +1,7 @@
 import React, { useState, useEffect }from "react";
-import { Route, Redirect } from "react-router-dom";
-import { Form, Button, Alert} from "react-bootstrap";
+import { Form, Button, Card} from "react-bootstrap";
 import APIManager from '../Modules/APIManager';
+import "./registration.css";
 
 
 const Register = (props) => {
@@ -24,33 +24,33 @@ const Register = (props) => {
         let userEmailCheck = true;
 
         users.forEach(user => {
-            if (user.email === userEmailInputValue) {
+            if (user.email === userEmailInputValue ) {
                 userEmailCheck = false;
                 if (user.userName === userNameInputValue){
                     userNameCheck = false;
                 } 
             }   
         })
-            if (userEmailCheck === true) {
-                if (userNameCheck === true) {
-                    if (userPasswordValue === userConfirmPasswordValue) {
+            if (userEmailCheck === true && userEmailInputValue !== "") {
+                if (userNameCheck === true && userNameInputValue !== "") {
+                    if (userPasswordValue === userConfirmPasswordValue && userPasswordValue !== "" ) {
                         props.setUser(credentials)
                         APIManager.Push("users", credentials)
                         props.history.push("/Dashboard")
                     } else {
-                       return <Alert variant='danger'>
-                                Passwords do not match.
-                              </Alert>
+                       return (
+                              alert("Retry password")
+                              )
                     }
                 } else {
-                   return <Alert variant='danger'>
-                            Username already in use, please make a new selection.
-                          </Alert>
+                   return (
+                          alert("Retry username")
+                          )
                 }
             } else {
-               return <Alert variant='danger'>
-                        Email already in use, please make a new selection.
-                      </Alert>
+               return (
+                      alert("Retry email")
+                      )
             }
 
         
@@ -65,16 +65,19 @@ const Register = (props) => {
 
     return (
       <div className="registerContainer">
-        <div className="registerCard">
-          <picture className="registerLogo">
-            <img src="" alt="imgLogo" />
-          </picture>
-          <h2 className="registerWelcome">Nutshell</h2>
-
-          <Form onSubmit={handleRegister}>
+        <Card className="registrationCard">
+        <Card.Body>
+          <Card.Img 
+          className="registrationLogo" 
+          src={require("../images/logo.png")} 
+          alt="imgLogo" />
+          <Card.Subtitle className="registerWelcome">
+            Please register below.
+          </Card.Subtitle>
+          <Form className="registerForm" onSubmit={handleRegister}>
             <Form.Group >
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
+              <Form.Label className="registerLabel">Email address</Form.Label>
+              <Form.Control className="registerLogin"
                 onChange={handleFieldChange}
                 type="email"
                 id="email"
@@ -82,20 +85,19 @@ const Register = (props) => {
               />
             </Form.Group>
               <Form.Group >
-              <Form.Label>Username</Form.Label>
-              <Form.Control
+              <Form.Label className="registerLabel">Username</Form.Label>
+              <Form.Control className="registerLogin"
                 onChange={handleFieldChange}
                 type="userName"
                 id="userName"
                 placeholder="Enter Username"
               />
               <Form.Text className="text-muted">
-                We'll share your email with everyone else.
               </Form.Text>
             </Form.Group>
             <Form.Group>
-              <Form.Label>Password</Form.Label>
-              <Form.Control
+              <Form.Label className="registerLabel">Password</Form.Label>
+              <Form.Control className="registerLogin"
                 onChange={handleFieldChange}
                 type="password"
                 id="password"
@@ -103,8 +105,8 @@ const Register = (props) => {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
+              <Form.Label className="registerLabel">Confirm Password</Form.Label>
+              <Form.Control className="registerLogin"
                 onChange={handleFieldChange}
                 type="password"
                 id="confirmedPassword"
@@ -112,14 +114,16 @@ const Register = (props) => {
               />
             </Form.Group>
             <Button
+              className="registrationButton"
               onClick={handleRegister}
-              variant="primary"
+              variant= "custom"
               type="submit"
             >
               Register
             </Button>
           </Form>
-        </div>
+          </Card.Body>
+        </Card>
       </div>
     );
 }
