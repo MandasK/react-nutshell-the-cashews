@@ -11,7 +11,7 @@ const EventCard = (props) => {
     <section className={`section__itemCard event--${props.locations.id}`}>
       <div className="div__card__event">
         <Card className="card">
-          <Card.Body className="card-content">
+          <Card.Body className="card-Content">
             {/* <picture>
               <img
                 src={require("https://i.imgur.com/mNfn5An.jpg")}
@@ -32,6 +32,12 @@ const EventCard = (props) => {
             </Card.Text>
           </Card.Body>
         </Card>
+        <button
+          type="button"
+          onClick={() => props.deleteEvent(props.locations.id)}
+        >
+          Remove
+        </button>
       </div>
     </section>
   );

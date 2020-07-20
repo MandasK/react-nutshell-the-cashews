@@ -1,0 +1,40 @@
+small {
+    font-size: 75%;
+  }
+  
+  header {
+    background-color: #2b3b3b ;
+    
+  }
+  
+  .site-title {
+    color: #fff7e7;
+    text-align: center;
+  }
+  
+  nav .container {
+    display: flex;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  
+  nav .container li {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff7e7;
+    box-sizing: border-box;
+    background-color: #2b3b3b ;
+    list-style-type: none;
+  }
+  
+  .nav-link {
+    color: #fff7e7;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .nav-link:hover {
+    color: #e37d64;
+  }

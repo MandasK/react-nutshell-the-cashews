@@ -3,7 +3,7 @@ import APIManager from "../Modules/APIManager";
 import "./Event.css";
 
 const EventForm = props => {
-    const [event, setEvent] = useState({ userId: 0, event: "" })
+    const [event, setEvent] = useState({ userId: 0, name: "", date: "", place: "" });
 
 
     const handleFieldChange = evt => {
@@ -16,6 +16,7 @@ const EventForm = props => {
         evt.preventDefault();
         if (event !== "") {
             APIManager.Push("events", event)
+            .then(() => props.history.push("/events"))
         
         } else {
             window.alert("Please enter an Event");
@@ -29,8 +30,18 @@ const EventForm = props => {
                     <div>
                         <input type="text"
                             required onChange={handleFieldChange}
-                            id="event"
-                            placeholder="Enter an Event" />
+                            id="name"
+                            placeholder="Enter an Name" />
+                        
+                        <input type="date"
+                            required onChange={handleFieldChange}
+                            id="date"
+                            placeholder="Enter an Date" />
+                    
+                        <input type="text"
+                            required onChange={handleFieldChange}
+                            id="location"
+                            placeholder="Enter an Location" />
                         <div>
                             <button type="button" onClick={constructNewEvent}>
                                 POST</button>

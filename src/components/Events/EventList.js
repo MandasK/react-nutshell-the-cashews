@@ -2,23 +2,22 @@ import React, { useState, useEffect } from "react";
 import APIManager from "../Modules/APIManager";
 import EventCard from "../Events/EventCard";
 import "./Event.css";
-import EventForm from "../Events/EventForm";
 
 
 const EventList = (props) => {
   // The initial state is an empty array
-  const [events, setEvents] = useState([]);
+  const [places, setEvents] = useState([]);
 
   const getEvent = () => {
     // After the data comes back from the API, we
     //  use the setEvents function to update state
-    return APIManager.GetAll("events").then((eventFromAPI) => {
-      setEvents(eventFromAPI);
+    return APIManager.GetAll("events").then((eventsFromAPI) => {
+      setEvents(eventsFromAPI);
     });
   };
   const deleteEvent = (id) => {
     APIManager.delete(id).then(() =>
-      APIManager.GetAll("event").then(setEvents)
+      APIManager.GetAll("events").then(setEvents)
     );
   };
 
@@ -30,7 +29,7 @@ const EventList = (props) => {
   // Finally we use map() to "loop over" the events array to show a list of animal cards
   return (
     <div className="container-eventCards">
-      {/* //add this button above your display of animal cards */}
+      {/* //add this button above your display of events cards */}
       <section className="section-eventContent">
         <button
           type="button"
@@ -42,13 +41,15 @@ const EventList = (props) => {
           Add Event
         </button>
       </section>
-      {events.map((event) => (
+      {places.map((place) => (
         <EventCard
-          key={event.id}
-          locations={event}
-          deleteLocation={deleteEvent}
+          key={place.id}
+          locations={place}
+          deleteEvent={deleteEvent}
           {...props}
         />
+
+        
       ))}
     </div>
   );
