@@ -3,6 +3,10 @@ import { Form, Button, Card} from "react-bootstrap";
 import APIManager from '../Modules/APIManager';
 import "./registration.css";
 const Register = (props) => {
+<<<<<<< HEAD
+=======
+  
+>>>>>>> master
     const [credentials, setCredentials] = useState({ email: "", userName: "", password: ""});
     const [users, setUsers] = useState([])
     useEffect(()=> {
