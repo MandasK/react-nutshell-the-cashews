@@ -4,16 +4,33 @@ import APIManager from '../Modules/APIManager';
 const MessageForm = props => {
     const [message, setMessage] = useState({userId: 0, message:""})
 
+    const clearInputField = () => {
+        let inputField = document.getElementById("message")
+        inputField.value = ""
+    };
+
     const handleFieldChange = evt => {
         const stateToChange = {...message};
         stateToChange[evt.target.id] = evt.target.value;
+        stateToChange.userId = sessionStorage.activeUser.userId
         setMessage(stateToChange);
     };
+
+    const editMessage = evt => {
+        evt.preventDefault();
+        console.log("editing message")
+        let editedMessageInput = document.querySelector("#message").value
+        APIManager.Push("messages", editedMessageInput)
+    }
 
     const constructNewMessage = evt => {
         evt.preventDefault();
         if (message !== "") {
             APIManager.Push("messages", message)
+            console.log(message)
+            props.getMessages()
+            clearInputField();
+            setMessage(0, "")
         } else {
             window.alert("Please enter a message");
         }

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import MessageCard  from '../Messages/MessageCard';
+import MessageForm from '../Messages/MessageForm';
 import APIManager from '../../components/Modules/APIManager';
 
 const MessageList = (props) => {
@@ -25,6 +26,9 @@ const MessageList = (props) => {
                     {...props}
                     />
             )}
+        </div>
+        <div>
+            <MessageForm getMessages={getMessages} />
         </div>
         </>
     )

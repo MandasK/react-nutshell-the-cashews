@@ -28,7 +28,6 @@ const Dashboard = props => {
             {/* Changeable dashboard in this  Col */}
             <Col className="dashboardCol">
                 <MessageList />
-                <MessageForm />
             </Col>
         </Row>
         </Container>
