@@ -1,14 +1,54 @@
-import React, { useState } from "react";
-import { Route, Redirect } from "react-router-dom";
-import { Form,Button} from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import APIManager from '../Modules/APIManager';
+import { Card, Form, Button, Row, Col, } from "react-bootstrap";
+import "./login.css"
 
 const Login = (props) => {
-    const [credentials, setCredentials] = useState({ email: "", userName: "", password: "" });
+    const [credentials, setCredentials] = useState({ userName: "", password: "" });
+    const [users, setUsers] = useState([])
+    
+    useEffect(()=> {
+      APIManager.GetAll("users")
+      .then((response) => {
+        setUsers(response)
+      })
+    }, [])
+    
     
     const handleLogin = (event) => {
         event.preventDefault();
-        props.setUser(credentials)
-        props.history.push("/Dashboard")
+        const userNameInputValue = document.getElementById("userName").value
+        const userPassword = document.getElementById("password").value
+        let userNameCheck = false
+        let passwordCheck = false
+
+        users.forEach(user => {
+          
+          
+          if (user.userName === userNameInputValue) {
+            
+            userNameCheck = true;
+            if (user.password === userPassword) {
+              
+              passwordCheck = true;
+              props.setUser(credentials)
+              props.history.push("/Dashboard")
+            } 
+          } 
+        })
+          if (userNameCheck === true) {
+            if (passwordCheck === false) {  
+              
+              return (
+                alert("Password is incorrect.")
+                      )
+              
+            }
+          } else {
+            return (
+              alert("Username is incorrect")
+                    )
+          }
         
     }
     const handleFieldChange = (event) => {
@@ -21,44 +61,62 @@ const Login = (props) => {
 
     return (
       <div className="loginContainer">
-        <div className="loginCard">
-          <picture className="loginLogo">
-            <img src="" alt="imgLogo" />
-          </picture>
-          <h2 className="loginWelcome">Nutshell</h2>
+        <Card className="loginCard">
+          <Card.Body>
+          <Card.Img 
+          className="loginLogo" 
+          src={require("../images/logo.png")} 
+          alt="imgLogo" />
+         <Card.Title className="loginWelcome"> 
+         Welcome to Nutshell
+         </Card.Title>
+         <Card.Subtitle className="loginWelcomeSub">
+           Your life in a Nutshell.
+         </Card.Subtitle>
 
           <Form onSubmit={handleLogin}>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address/Username</Form.Label>
-              <Form.Control
+          <Row>
+            <Col>
+            <Form.Group>
+              <Form.Label className="loginLabel">Username</Form.Label>
+              <Form.Control className="loginForm"
                 onChange={handleFieldChange}
-                type="email"
-                placeholder="Enter Email/Username"
+                type="text"
+                id="userName"
+                placeholder="Enter Username"
               />
-              <Form.Text className="text-muted">
-                We'll share your email with everyone else.
-              </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
+            <Form.Group>
+              <Form.Label className="loginLabel">Password</Form.Label>
+              <Form.Control className="loginForm"
                 onChange={handleFieldChange}
                 type="password"
+                id="password"
                 placeholder="Password"
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button 
+            className = "loginButton"
+            variant="custom" 
+            type="submit">
               Login
             </Button>
+            </Col>
+            <Col>
             <Button
+              className = "registerButton"
+              variant= "custom"
               onClick={() => props.history.push("/Registration")}
-              variant="primary"
+              
               type="submit"
             >
-              Register
+              Register New Account
             </Button>
+            </Col>
+            </Row>
           </Form>
-        </div>
+          </Card.Body>
+        </Card>
       </div>
     );
 }

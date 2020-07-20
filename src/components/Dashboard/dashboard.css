@@ -1,0 +1,30 @@
+.dashboardContainer {
+    background-color: #2b3b3b;  
+    color: #fff7e7
+}
+
+
+.userAndNavRow {
+    border: 1px white solid ;
+    
+}
+
+.userCol {
+    border: 3px black solid;
+}
+
+.navbarCol {
+    border: 3px lime solid;
+}
+
+.freindsAndDashboardRow {
+    border: 1px white solid ;
+}
+
+.friendsCol {
+    border: 3px orange solid
+}
+
+.dashboardCol {
+    border: 3px purple solid
+}
