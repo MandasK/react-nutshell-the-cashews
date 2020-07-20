@@ -40,13 +40,13 @@ const Login = (props) => {
             if (passwordCheck === false) {  
               
               return (
-                alert("Username is incorrect.")
+                alert("Password is incorrect.")
                       )
               
             }
           } else {
             return (
-              alert("Password is incorrect")
+              alert("Username is incorrect")
                     )
           }
         
