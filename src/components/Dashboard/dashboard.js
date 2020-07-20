@@ -1,9 +1,16 @@
 import React from 'react';
 import { Row, Col, Container } from "react-bootstrap";
 import "./dashboard.css"
-
+import Navbar from "../Navbar/Navbar"
+import FriendsList from "../Friends/FriendList"
 
 const Dashboard = props => {
+    const clearUser = () => {
+        sessionStorage.clear();
+        localStorage.clear();
+        
+      }
+
     return (
         // User info and Navbar inside this Row
         <Container fluid className="dashboardContainer">
@@ -12,16 +19,16 @@ const Dashboard = props => {
             <Col md={2} className="userCol">
                 Current User
             </Col>
-            {/* Navbar in this Col */}
+            
             <Col className="navbarCol">
-                Navbar
+            <Navbar clearUser={clearUser} {...props} />
             </Col>
         </Row>
         {/* // Friends list and changeable dashboard in this Row */}
         <Row className="friendsAndDashboardRow">
             {/* Firends List in thie Col */}
             <Col md={2} className="friendsCol">
-                friends list
+                <FriendsList {...props} />
             </Col>
             {/* Changeable dashboard in this  Col */}
             <Col className="dashboardCol">

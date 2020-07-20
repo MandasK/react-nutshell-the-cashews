@@ -5,7 +5,8 @@ import "./registration.css";
 
 
 const Register = (props) => {
-    const [credentials, setCredentials] = useState({ email: "", userName: "", password: "", confirmPassword:"" });
+  
+    const [credentials, setCredentials] = useState({ email: "", userName: "", password: ""});
     const [users, setUsers] = useState([])
     useEffect(()=> {
       APIManager.GetAll("users")
@@ -34,8 +35,17 @@ const Register = (props) => {
             if (userEmailCheck === true && userEmailInputValue !== "") {
                 if (userNameCheck === true && userNameInputValue !== "") {
                     if (userPasswordValue === userConfirmPasswordValue && userPasswordValue !== "" ) {
-                        props.setUser(credentials)
-                        APIManager.Push("users", credentials)
+                        
+                        APIManager.Push("users", credentials) .then(() => {
+                          APIManager.GetAll("users").then((response) => {
+                            response.forEach(user => {
+                              if(user.userName === userNameInputValue){
+                                credentials.userId = user.id
+                                props.setUser(credentials)
+                              }
+                            })
+                          })
+                        })
                         props.history.push("/Dashboard")
                     } else {
                        return (
@@ -107,7 +117,6 @@ const Register = (props) => {
             <Form.Group>
               <Form.Label className="registerLabel">Confirm Password</Form.Label>
               <Form.Control className="registerLogin"
-                onChange={handleFieldChange}
                 type="password"
                 id="confirmedPassword"
                 placeholder="Confirm Password"
