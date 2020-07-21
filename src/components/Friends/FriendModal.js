@@ -63,11 +63,11 @@ const HandleFriendModal = (props) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Friends
+            
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>New Friends</h4>
+          <h4 className="new-friends">New Friends</h4>
         <Form inline>
             <FormControl type="text" placeholder="Search" className=" mr-sm-2" onChange={handleSearchChange} onClick={userFriends} />
             
@@ -92,7 +92,7 @@ const HandleFriendModal = (props) => {
   
     return (
       <>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
+        <Button variant="custom" onClick={() => setModalShow(true)}>
           Add new Friend
         </Button>
   

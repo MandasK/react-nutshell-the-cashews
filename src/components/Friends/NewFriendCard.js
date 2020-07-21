@@ -24,7 +24,7 @@ const NewFriendCard = props => {
     return (
         <>
         <Card>
-            <h3>{props.friend.userName}</h3>
+            <h3 className="new-freind-text">{props.friend.userName}</h3>
             <Button
               className = "add-friend-btn"
               variant= "custom"

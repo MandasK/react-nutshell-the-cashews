@@ -6,15 +6,7 @@ import APIManager from "./Modules/APIManager"
 
 const Nutshell = (props) => {
 
-  useEffect(() => {
-    APIManager.GetUsersFriends("friends").then((response) =>{
-        
-        console.log(response)
-        APIManager.SortingbyFriend(response)
-        })
-            
-       
-    }, [])
+  
   
     const isAuthenticated = () => {
       if (
