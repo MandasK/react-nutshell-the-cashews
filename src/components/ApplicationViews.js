@@ -6,11 +6,11 @@ import Login from './auth/login';
 import EventList from "../components/Events/EventList";
 import EventForm from "../components/Events/EventForm"
 // import APIManager from "../components/Modules/APIManager"
+import ArticleList from './News/ArticleList'
 
 const ApplicationViews = props => {
     const hasUser = props.hasUser
     const setUser = props.setUser
-    console.log("hasUser", hasUser)
 
     return (
       <>
