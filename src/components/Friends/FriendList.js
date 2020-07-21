@@ -15,6 +15,7 @@ const FriendsList = props => {
         .then((response) => {
             console.log(response)
             setFriends(response)
+            props.newFriends(response)
         })}
 
     useEffect(() => {
@@ -27,7 +28,7 @@ const FriendsList = props => {
     return (
     <div className="friend-container">
         <h2>Friend's List</h2>
-        <NewFriend friendUpdate={friendUpdate} />
+        <NewFriend friendUpdate={friendUpdate} newFriends={props.newFriends} />
 
     <div className="friend-card-container">
         {friends.map(friend => 

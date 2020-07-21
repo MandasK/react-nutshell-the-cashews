@@ -3,7 +3,7 @@ import APIManager from "../Modules/APIManager";
 import "../Events/Event.css";
 
 const EventForm = props => {
-    const [place, setEvent] = useState({ userId: 0, name: "", date: "", place: "" });
+    const [place, setEvent] = useState({ userId: parseInt(sessionStorage.activeUserID) , name: "", date: "", place: "" });
     let newVariable = props.placeConstruct
 
 
