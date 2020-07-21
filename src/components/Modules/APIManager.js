@@ -17,17 +17,6 @@ export default {
     return fetch(`${remoteURL}${str}?_expand=user`).then((res) => res.json());
   },
 
-<<<<<<< HEAD
-    Push(str, obj){
-        return fetch(`${remoteURL}${str}`, {
-            method:'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(obj)
-        })
-    },
-=======
   Get(str, id) {
     return fetch(`${remoteURL}${str}/${id}`).then((res) => res.json());
   },
@@ -41,7 +30,6 @@ export default {
       body: JSON.stringify(obj),
     });
   },
->>>>>>> master
 
   Update(str, id, data) {
     return fetch(`${remoteURL}${str}/${id}`, {
