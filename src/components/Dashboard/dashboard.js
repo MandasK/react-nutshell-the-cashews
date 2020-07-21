@@ -7,19 +7,11 @@ import TaskList from "../tasks/TaskList"
 import APIManager from "../Modules/APIManager"
 import Navbar from "../Navbar/Navbar"
 import FriendsList from "../Friends/FriendList"
+import EventList from "../Events/EventList"
 
 const Dashboard = props => {
     const [friends, setFriends] = useState([])
-    useEffect(() => {
-        APIManager.GetUsersFriends("friends").then((response) =>{
-            
-            console.log(response)
-            APIManager.SortingbyFriend(response)
-            })
-                
-           
-        }, [])
-      
+    
     const refresh = ref => {
         setFriends(ref)
     }
@@ -113,7 +105,7 @@ const Dashboard = props => {
                 {/* Changeable dashboard in this  Col */}
                 <Col>
                 <Container className="dashboardCol">
-                   events
+                   <EventList />
                 </Container>
                 
                 </Col>

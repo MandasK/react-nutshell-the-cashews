@@ -11,13 +11,13 @@ const EventList = (props) => {
   const getEvent = () => {
     // After the data comes back from the API, we
     //  use the setEvents function to update state
-    return APIManager.GetAll("events").then((eventsFromAPI) => {
+    return APIManager.GetAllSort("events").then((eventsFromAPI) => {
       setEvents(eventsFromAPI);
     });
   };
   const deleteEvent = (id) => {
     APIManager.delete(id).then(() =>
-      APIManager.GetAll("events").then(setEvents)
+      APIManager.GetAllSort("events").then(setEvents)
     );
   };
 
