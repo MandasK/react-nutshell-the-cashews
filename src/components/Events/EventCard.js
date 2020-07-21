@@ -33,10 +33,18 @@ const EventCard = (props) => {
           </Card.Body>
         </Card>
         <button
+          class="eventButton"
           type="button"
           onClick={() => props.deleteEvent(props.locations.id)}
         >
           Remove
+        </button>
+        <button
+          class="eventButton"
+          type="button"
+          onClick={() => props.editEvent(props.locations.id)}
+        >
+          Edit
         </button>
       </div>
     </section>
