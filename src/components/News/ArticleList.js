@@ -43,7 +43,7 @@ const ArticleList =(props) => {
        
             <Container className="ArticleListContainer">
             {/* Changeable dashboard in this  Col */}
-            <Row className="taskdashboard">
+            <Row className="articledashboard">
                 <ArticleForm
                 construct={ConstructNewArticle} />
                 

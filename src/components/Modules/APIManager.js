@@ -19,11 +19,6 @@ export default {
         .then(res=>res.json())
     },
 
-    Get(str,id) {
-        return fetch(`${remoteURL}${str}/${id}`)
-        .then(res => res.json())
-    },
-
     Push(str, obj){
         return fetch(`${remoteURL}${str}`, {
             method:'POST',
@@ -58,4 +53,14 @@ export default {
       method: "DELETE",
     })
   },
+  PostTasks(obj) {
+      return fetch(`http://localhost:8088/tasks/`, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+      })
+
+  }
 };

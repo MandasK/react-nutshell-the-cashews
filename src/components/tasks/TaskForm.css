@@ -1,0 +1,10 @@
+.taskFormContainer {
+    background-color: #2b3b3b;  
+    color: #fff7e7;
+    margin-bottom: 2rem;;
+}
+
+.taskFormButton.btn.btn-custom {
+    background-color: #e37d64;
+    color: #fff7e7;  
+}
