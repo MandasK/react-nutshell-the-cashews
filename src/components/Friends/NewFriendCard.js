@@ -18,7 +18,9 @@ const NewFriendCard = props => {
         })
     }
    
+    if(sessionStorage.activeUserID != props.friend.userName){
 
+    
     return (
         <>
         <Card>
@@ -35,13 +37,28 @@ const NewFriendCard = props => {
               Add Friend
             </Button>
         </Card>
-
+        
         
 
 
         </>
 
     )
+    }else {
+        return (
+            <>
+            <Card>
+                <h3>{props.friend.userName}</h3>
+                
+            </Card>
+            
+            
+    
+    
+            </>
+    
+        )
+    }
 }
 
 export {NewFriendCard}

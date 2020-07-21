@@ -25,8 +25,11 @@ const HandleFriendModal = (props) => {
             let filterCheck = true
             newFriend.forEach(person =>{
                 
-                if(friend.userName === person.user.userName || friend.userName === sessionStorage.activeUser){
+                if(friend.userName == person.user.userName){
                     filterCheck = false
+                }else if(friend.userName == sessionStorage.activeUser){
+                    filterCheck = false
+                    
                 }
                
             })

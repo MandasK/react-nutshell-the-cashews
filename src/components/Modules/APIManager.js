@@ -74,10 +74,25 @@ export default {
     },
   
   ////Events
-  
+
   delete(id) {
     return fetch(`${remoteURL}events/${id}`, {
       method: "DELETE",
-    })
+    });
   },
+  edit(id) {
+    return fetch(`${remoteURL}events/${id}`, {
+      method: "EDIT",
+    });
+  },
+  PostTasks(obj) {
+      return fetch(`http://localhost:8088/tasks/`, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+      })
+
+  }
 };

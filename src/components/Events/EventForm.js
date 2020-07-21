@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
 import APIManager from "../Modules/APIManager";
-import "./Event.css";
+import "../Events/Event.css";
 
 const EventForm = props => {
-    const [event, setEvent] = useState({ userId: 0, name: "", date: "", place: "" });
+    const [place, setEvent] = useState({ userId: parseInt(sessionStorage.activeUserID) , name: "", date: "", place: "" });
+    let newVariable = props.placeConstruct
 
 
     const handleFieldChange = evt => {
-        const stateToChange = { ...event };
+        const stateToChange = { ...place };
         stateToChange[evt.target.id] = evt.target.value;
         setEvent(stateToChange);
     };
 
-    const constructNewEvent = evt => {
-        evt.preventDefault();
-        if (event !== "") {
-            APIManager.Push("events", event)
-            .then(() => props.history.push("/events"))
-        
-        } else {
-            window.alert("Please enter an Event");
-        }
-    };
+    const constructNewestEvent = () => {
+        newVariable(place)
+    }
+
 
     return (
         <>
@@ -40,10 +35,10 @@ const EventForm = props => {
                     
                         <input type="text"
                             required onChange={handleFieldChange}
-                            id="location"
+                            id="place"
                             placeholder="Enter an Location" />
                         <div>
-                            <button type="button" onClick={constructNewEvent}>
+                            <button id ="eventButton" type="button" onClick={constructNewestEvent}>
                                 POST</button>
                         </div>
                     </div>
