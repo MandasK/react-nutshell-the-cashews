@@ -1,13 +1,12 @@
+//Responsible for creating 
 import React, { useState } from 'react';
-import APIManager from '../Modules/APIManager';
+import { Form, Button } from "react-bootstrap";
+import './Messages.css'
 
 const MessageForm = props => {
-    const [message, setMessage] = useState({message:""})
+    const [message, setMessage] = useState({message:"", user:sessionStorage.activeUser})
+    let newMessage = props.constructMessage
 
-    const clearInputField = () => {
-        let inputField = document.getElementById("message")
-        inputField.value = ""
-    };
 
     const handleFieldChange = evt => {
         const stateToChange = {...message};
@@ -16,34 +15,32 @@ const MessageForm = props => {
         setMessage(stateToChange);
     };
 
+    const constructNewestMessage = () => {
+        newMessage(message)
+    }
 
-    const constructNewMessage = evt => {
-        evt.preventDefault();
-        if (message !== "") {
-            APIManager.Push("messages", message)
-            props.getMessages()
-            clearInputField();
-        } else {
-            window.alert("Please enter a message");
-        }
-    };
+    
 
     return (
         <>
             <form>
                 <fieldset>
                     <div>
-                        <input
+                        <Form.Control
+                            className="messageForm"
                             type="text"
                             required
                             onChange={handleFieldChange}
                             id="message"
                             placeholder="What's on your mind?"
-                        />
-                        <button
+                            />
+                        
+                        <Button 
+                            className = "postMessageButton"
                             type="button"
-                            onClick={constructNewMessage}
-                        >Post</button>
+                            onClick={constructNewestMessage}
+                            variant="custom"
+                        >Post</Button>
                     </div>
                 </fieldset>
             </form>
