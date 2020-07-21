@@ -12,13 +12,15 @@ const NewFriendCard = props => {
         APIManager.Push("friends", newFriend).then(() => {
             APIManager.GetAll("users").then((response) => props.setFriends(response)).then(() => {
                 APIManager.GetUsersFriends("friends").then((response) => props.setNewFriends(response)).then(() => props.setFilterFriends([]))
-                .then(() => update()).then(() => props.clear())
+                .then(() => update()).then(() => props.clear).then(() => props.newFriends)
                 
             })
         })
     }
    
+    if(sessionStorage.activeUserID != props.friend.userName){
 
+    
     return (
         <>
         <Card>
@@ -35,13 +37,28 @@ const NewFriendCard = props => {
               Add Friend
             </Button>
         </Card>
-
+        
         
 
 
         </>
 
     )
+    }else {
+        return (
+            <>
+            <Card>
+                <h3>{props.friend.userName}</h3>
+                
+            </Card>
+            
+            
+    
+    
+            </>
+    
+        )
+    }
 }
 
 export {NewFriendCard}
