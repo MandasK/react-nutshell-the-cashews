@@ -15,11 +15,14 @@ const TaskCard = props => {
           <br></br>
           Due Date: {props.thing.date}
         </Card.Text>
+        {props.thing.userId === parseInt(sessionStorage.activeUserId) ?
         <Form.Group controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Mark Task Complete" onClick={() => props.deleteTask(props.thing.id)} />
         </Form.Group>
+        : ""}
         <br></br>
-        <Button className="taskDeleteButton" variant="custom" onClick={() => props.deleteTask(props.thing.id)}>Remove</Button>
+
+        {props.thing.userId === parseInt(sessionStorage.activeUserId) ? <Button className="taskDeleteButton" variant="custom" onClick={() => props.deleteTask(props.thing.id)}>Remove</Button> : ""}
       </Card.Body>
       
     </Card>  

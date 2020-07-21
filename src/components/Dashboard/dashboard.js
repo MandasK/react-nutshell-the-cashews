@@ -5,8 +5,6 @@ import "./dashboard.css"
 import ArticleList from "../News/ArticleList"
 import TaskList from "../tasks/TaskList"
 import APIManager from "../Modules/APIManager"
-
-
 import Navbar from "../Navbar/Navbar"
 import FriendsList from "../Friends/FriendList"
 import EventList from "../Events/EventList"

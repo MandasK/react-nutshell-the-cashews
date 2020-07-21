@@ -11,12 +11,12 @@ const ArticleCard = props => {
           <Card.Title className="articleTitle">{props.news.title}</Card.Title>
           <Card.Text className="articleSynopsis">
             {props.news.user}
-            <br></br>
+            <br />
             {props.news.synopsis}
           </Card.Text>
     <Card.Link target="_blank" className="articleLink" href={props.news.url}>{props.news.url}</Card.Link>
-          <br></br>
-          <Button className="articleDeleteButton" variant="custom" onClick={() => props.deleteArticle(props.news.id)}>Remove Article</Button>
+          <br />
+          {props.news.userId === parseInt(sessionStorage.activeUserID) ? <Button className="articleDeleteButton" variant="custom" onClick={() => props.deleteArticle(props.news.id)}>Remove Article</Button> : ""}
         </Card.Body>
         
       </Card>  
