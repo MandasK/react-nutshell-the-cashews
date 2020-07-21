@@ -38,17 +38,6 @@ const ApplicationViews = props => {
                     }
                 }}
             />
-            <Route
-                exact
-                path="/News"
-                render={(props) => {
-                    if(hasUser) {
-                      return <ArticleList {...props} />;
-                    } else {
-                      return <Redirect exact to="/" />  
-                    }
-        }}
-      />
         </>
     )
 }

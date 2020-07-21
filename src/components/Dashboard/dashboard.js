@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, Container } from "react-bootstrap";
 import "./dashboard.css"
 import ArticleList from "../News/ArticleList"
+import TaskList from "../tasks/TaskList"
 
 import Navbar from "../Navbar/Navbar"
 import FriendsList from "../Friends/FriendList"
@@ -33,8 +34,11 @@ const Dashboard = props => {
                 <FriendsList {...props} />
             </Col>
             {/* Changeable dashboard in this  Col */}
-            <Col className="dashboardCol">
-               <ArticleList />
+            <Col>
+            <Container className="dashboardCol">
+                <TaskList />
+            </Container>
+            
             </Col>
         </Row>
         </Container>
