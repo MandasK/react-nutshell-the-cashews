@@ -9,3 +9,27 @@
     flex-direction: row;
   
 }
+
+.btn.btn-custom {
+    background-color: #e37d64;
+    color: #fff7e7;   
+}
+
+#contained-modal-title-vcenter.modal-title.h4 {
+    color: #fff7e7; 
+   
+}
+h4.new-friends{
+    color: #fff7e7; 
+    text-align: left;
+    
+}
+
+input.mr-sm-2.form-control {
+    margin-bottom: 2vw;
+}
+
+h3.new-freind-text {
+    text-align: center;
+    color: #fff7e7; 
+}

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import APIManager from "../Modules/APIManager"
 import {HandleFriendModal, NewFriend} from "./FriendModal"
 import {FriendCard} from "./FriendCard"
+import "../Dashboard/dashboard.css"
+
 
 
 
