@@ -47,5 +47,15 @@ export default {
         return fetch(`${remoteURL}${str}/${id}`, {
             method: 'DELETE'
         })
-    }
-}
+    },
+
+  
+  
+  ////Events
+  
+  delete(id) {
+    return fetch(`${remoteURL}events/${id}`, {
+      method: "DELETE",
+    })
+  },
+};

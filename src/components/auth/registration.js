@@ -1,6 +1,6 @@
-import React, { useState, useEffect }from "react";
-import { Form, Button, Card} from "react-bootstrap";
-import APIManager from '../Modules/APIManager';
+import React, { useState, useEffect } from "react";
+import { Form, Button, Card } from "react-bootstrap";
+import APIManager from "../Modules/APIManager";
 import "./registration.css";
 const Register = (props) => {
   
@@ -69,37 +69,40 @@ const Register = (props) => {
       <div className="registerContainer">
         <Card className="registrationCard">
         <Card.Body>
-          <Card.Img 
-          className="registrationLogo" 
-          src={require("../images/logo.png")} 
-          alt="imgLogo" />
+          <Card.Img
+            className="registrationLogo"
+            src={require("../images/logo.png")}
+            alt="imgLogo"
+          />
           <Card.Subtitle className="registerWelcome">
             Please register below.
           </Card.Subtitle>
           <Form className="registerForm" onSubmit={handleRegister}>
-            <Form.Group >
+            <Form.Group>
               <Form.Label className="registerLabel">Email address</Form.Label>
-              <Form.Control className="registerLogin"
+              <Form.Control
+                className="registerLogin"
                 onChange={handleFieldChange}
                 type="email"
                 id="email"
                 placeholder="Enter Email"
               />
             </Form.Group>
-              <Form.Group >
+            <Form.Group>
               <Form.Label className="registerLabel">Username</Form.Label>
-              <Form.Control className="registerLogin"
+              <Form.Control
+                className="registerLogin"
                 onChange={handleFieldChange}
                 type="userName"
                 id="userName"
                 placeholder="Enter Username"
               />
-              <Form.Text className="text-muted">
-              </Form.Text>
+              <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
             <Form.Group>
               <Form.Label className="registerLabel">Password</Form.Label>
-              <Form.Control className="registerLogin"
+              <Form.Control
+                className="registerLogin"
                 onChange={handleFieldChange}
                 type="password"
                 id="password"
@@ -107,8 +110,11 @@ const Register = (props) => {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label className="registerLabel">Confirm Password</Form.Label>
-              <Form.Control className="registerLogin"
+              <Form.Label className="registerLabel">
+                Confirm Password
+              </Form.Label>
+              <Form.Control
+                className="registerLogin"
                 type="password"
                 id="confirmedPassword"
                 placeholder="Confirm Password"
@@ -117,7 +123,7 @@ const Register = (props) => {
             <Button
               className="registrationButton"
               onClick={handleRegister}
-              variant= "custom"
+              variant="custom"
               type="submit"
             >
               Register
