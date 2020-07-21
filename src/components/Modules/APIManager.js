@@ -26,15 +26,8 @@ export default {
         return fetch(`${remoteURL}${str}?_expand=user`)
         .then(res=>res.json())
     },
-<<<<<<< HEAD
 
-    Get(str,id) {
-        return fetch(`${remoteURL}${str}/${id}`)
-        .then(res => res.json())
-    },
-=======
     
->>>>>>> master
 
     Push(str, obj){
         return fetch(`${remoteURL}${str}`, {

@@ -13,7 +13,6 @@ const MessageList = (props) => {
         inputField.value = ""
     };
 
->>>>>>> master
     
     const getMessages = () => {
         return APIManager.GetAll("messages").then(messagesFromAPI => {
