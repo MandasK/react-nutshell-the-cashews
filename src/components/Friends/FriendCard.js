@@ -6,8 +6,9 @@ import APIManager from "../Modules/APIManager"
 const FriendCard = props => {
 
     const handleFriendDelete = (evt) => {
-        APIManager.Delete("friends", evt.target.id)
-        APIManager.GetUsersFriends("friends", sessionStorage.activeUserID)
+        APIManager.Delete("friends", evt.target.id).then(() => {
+            APIManager.GetUsersFriends("friends", sessionStorage.activeUserID)
+        })
         .then((response) => {
             props.setFriends(response)
         })

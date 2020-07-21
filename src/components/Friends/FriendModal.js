@@ -25,8 +25,11 @@ const HandleFriendModal = (props) => {
             let filterCheck = true
             newFriend.forEach(person =>{
                 
-                if(friend.userName === person.user.userName || friend.userName === sessionStorage.activeUser){
+                if(friend.userName == person.user.userName){
                     filterCheck = false
+                }else if(friend.userName == sessionStorage.activeUser){
+                    filterCheck = false
+                    
                 }
                
             })
@@ -71,7 +74,7 @@ const HandleFriendModal = (props) => {
         </Form>
         <div className="new-friends">
         {filterFriends.map(friend => 
-        <NewFriendCard friend={friend} setFriends={setFriends} friendUpdate={props.friendUpdate} clear={clearSearch} setFilterFriends={setFilterFriends} setNewFriends={setNewFriend} {...props} />
+        <NewFriendCard friend={friend} newFriends={props.newFriends} setFriends={setFriends} friendUpdate={props.friendUpdate} clear={clearSearch} setFilterFriends={setFilterFriends} setNewFriends={setNewFriend} {...props} />
             )}
         
         </div>
@@ -94,6 +97,7 @@ const HandleFriendModal = (props) => {
         </Button>
   
         <HandleFriendModal
+          newFriends={props.newFriends} 
           show={modalShow}
           onHide={() => setModalShow(false)}
           friendUpdate={props.friendUpdate}

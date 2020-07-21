@@ -12,6 +12,11 @@ const ApplicationViews = props => {
     const hasUser = props.hasUser
     const setUser = props.setUser
 
+    const messages = true;
+    const news = true;
+    const events = true;
+    const tasks = true;
+
     return (
       <>
         {/* Login */}
@@ -35,7 +40,40 @@ const ApplicationViews = props => {
                 path="/Dashboard"
                 render={props => {
                     if(hasUser){
-                       return <Dashboard {...props} />;
+                       return <Dashboard messages={messages} {...props} />;
+                    } else {
+                       return <Redirect exact to="/" />
+                    }
+                }}
+            />
+            <Route
+                exact
+                path="/News"
+                render={props => {
+                    if(hasUser){
+                       return <Dashboard news={news} {...props} />;
+                    } else {
+                       return <Redirect exact to="/" />
+                    }
+                }}
+            />
+            <Route
+                exact
+                path="/Tasks"
+                render={props => {
+                    if(hasUser){
+                       return <Dashboard tasks={tasks} {...props} />;
+                    } else {
+                       return <Redirect exact to="/" />
+                    }
+                }}
+            />
+            <Route
+                exact
+                path="/Events"
+                render={props => {
+                    if(hasUser){
+                       return <Dashboard events={events} {...props} />;
                     } else {
                        return <Redirect exact to="/" />
                     }
