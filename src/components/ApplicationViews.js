@@ -30,33 +30,31 @@ const ApplicationViews = props => {
           }}
         />
         {/* Dashboard */}
-        <Route
-          exact
-          path="/Dashboard"
-          render={(props) => {
-            if (hasUser) {
-              return <Dashboard {...props} />;
-            } else {
-              return <Redirect exact to="/" />;
-            }
-          }}
-        />
-
-        {/* Events */}
-        <Route
-          exact
-          path="/events"
-          render={(props) => {
-            return <EventList {...props} />;
-          }}
-        />
-        <Route path="/events/new"
-          render={(props) => {
-            return <EventForm {...props} />;
-          }}
-        />
-      </>
-    );
+            <Route
+                exact
+                path="/Dashboard"
+                render={props => {
+                    if(hasUser){
+                       return <Dashboard {...props} />;
+                    } else {
+                       return <Redirect exact to="/" />
+                    }
+                }}
+            />
+        {/* Messages
+            <Route
+                exact
+                path="/Messages"
+                render={props => {
+                    if(hasUser){
+                        return <Messages {...props} />;
+                    } else {
+                        return <Redirect exact to="/" />
+                     }
+                }}
+            /> */}
+        </>
+    )
 }
 
 export default ApplicationViews
