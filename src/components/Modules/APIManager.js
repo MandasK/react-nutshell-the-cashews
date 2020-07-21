@@ -1,24 +1,23 @@
 const remoteURL = 'http://localhost:8088/'
 
 export default {
-    GetAll(str){
-        return fetch(`${remoteURL}${str}`)
-        .then(res=>res.json())
-    },
-    Get(str, id){
-        return fetch(`${remoteURL}${str}/${id}`)
-        .then(res=>res.json())
-    },
+  GetAll(str) {
+    return fetch(`${remoteURL}${str}`).then((res) => res.json());
+  },
+  Get(str, id) {
+    return fetch(`${remoteURL}${str}/${id}`).then((res) => res.json());
+  },
 
-    GetUsersFriends(str){
-        return fetch(`${remoteURL}${str}?activeUserId=${sessionStorage.activeUserID}&_expand=user`)
-        .then(res=>res.json())
-    },
-    GetAllFriends(str){
-        return fetch(`${remoteURL}${str}?_expand=user`)
-        .then(res=>res.json())
-    },
+  GetUsersFriends(str) {
+    return fetch(
+      `${remoteURL}${str}?activeUserId=${sessionStorage.activeUserID}&_expand=user`
+    ).then((res) => res.json());
+  },
+  GetAllFriends(str) {
+    return fetch(`${remoteURL}${str}?_expand=user`).then((res) => res.json());
+  },
 
+<<<<<<< HEAD
     Push(str, obj){
         return fetch(`${remoteURL}${str}`, {
             method:'POST',
@@ -28,30 +27,48 @@ export default {
             body: JSON.stringify(obj)
         })
     },
+=======
+  Get(str, id) {
+    return fetch(`${remoteURL}${str}/${id}`).then((res) => res.json());
+  },
 
-    Update(str, id, data){
-        return fetch(`${remoteURL}${str}/${id}`, {
-            method: "PUT",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-    },
-    Delete(str, id){
-        return fetch(`${remoteURL}${str}/${id}`, {
-            method: 'DELETE'
-        })
-    },
+  Push(str, obj) {
+    return fetch(`${remoteURL}${str}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(obj),
+    });
+  },
+>>>>>>> master
 
-  
-  
+  Update(str, id, data) {
+    return fetch(`${remoteURL}${str}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  },
+  Delete(str, id) {
+    return fetch(`${remoteURL}${str}/${id}`, {
+      method: "DELETE",
+    });
+  },
+
   ////Events
-  
+
   delete(id) {
     return fetch(`${remoteURL}events/${id}`, {
       method: "DELETE",
-    })
+    });
+  },
+  edit(id) {
+    return fetch(`${remoteURL}events/${id}`, {
+      method: "EDIT",
+    });
   },
   PostTasks(obj) {
       return fetch(`http://localhost:8088/tasks/`, {
