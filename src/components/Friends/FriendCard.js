@@ -18,7 +18,7 @@ const FriendCard = props => {
     return (
         <>
         <Card>
-            <Card>{props.friend.user.userName}</Card>
+            <h3>{props.friend.user.userName}</h3>
             <Button
               className = "delete-friend-btn"
               variant= "custom"

@@ -14,6 +14,15 @@ export default {
         return fetch(`${remoteURL}${str}?activeUserId=${sessionStorage.activeUserID}&_expand=user`)
         .then(res=>res.json())
     },
+    GetAllFriends(str){
+        return fetch(`${remoteURL}${str}?_expand=user`)
+        .then(res=>res.json())
+    },
+
+    Get(str,id) {
+        return fetch(`${remoteURL}${str}/${id}`)
+        .then(res => res.json())
+    },
 
     Push(str, obj){
         return fetch(`${remoteURL}${str}`, {
@@ -25,10 +34,28 @@ export default {
         })
     },
 
+    Update(str, id, data){
+        return fetch(`${remoteURL}${str}/${id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+    },
     Delete(str, id){
         return fetch(`${remoteURL}${str}/${id}`, {
             method: 'DELETE'
         })
-    }
+    },
 
-}
+  
+  
+  ////Events
+  
+  delete(id) {
+    return fetch(`${remoteURL}events/${id}`, {
+      method: "DELETE",
+    })
+  },
+};
