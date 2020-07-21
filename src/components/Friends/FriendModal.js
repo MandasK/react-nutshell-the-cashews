@@ -41,9 +41,7 @@ const HandleFriendModal = (props) => {
     }
     const userFriends = () => {
         APIManager.GetUsersFriends("friends").then((response) => setNewFriend(response)).then(() => {
-            if(newFriend.length === 0) {
-                setNewFriend(["*"])
-            }
+           
         })
         
     }

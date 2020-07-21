@@ -17,7 +17,7 @@ const Dashboard = props => {
         <Row className="userAndNavRow">
             {/* User info in this Col */}
             <Col md={2} className="userCol">
-                Current User
+                {sessionStorage.activeUser}
             </Col>
             
             <Col className="navbarCol">
