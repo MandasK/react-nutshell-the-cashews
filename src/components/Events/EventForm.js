@@ -38,7 +38,7 @@ const EventForm = props => {
                             id="place"
                             placeholder="Enter an Location" />
                         <div>
-                            <button id ="eventButton" type="button" onClick={constructNewestEvent}>
+                            <button class ="eventButton" type="button" onClick={constructNewestEvent}>
                                 POST</button>
                         </div>
                     </div>
