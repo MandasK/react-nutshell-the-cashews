@@ -4,6 +4,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import "./dashboard.css"
 import ArticleList from "../News/ArticleList"
 import TaskList from "../tasks/TaskList"
+import EventList from "../Events/EventList";
 
 import Navbar from "../Navbar/Navbar"
 import FriendsList from "../Friends/FriendList"
@@ -37,7 +38,7 @@ const Dashboard = props => {
             {/* Changeable dashboard in this  Col */}
             <Col>
             <Container className="dashboardCol">
-                <TaskList />
+                <EventList />
             </Container>
             
             </Col>
