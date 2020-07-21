@@ -6,8 +6,6 @@ import APIManager from '../../components/Modules/APIManager';
 
 const MessageList = (props) => {
     const [messages, setMessages] = useState([]);
-<<<<<<< HEAD
-=======
 
     const clearInputField = () => {
         
