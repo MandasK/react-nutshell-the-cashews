@@ -5,7 +5,7 @@ import APIManager from '../../components/Modules/APIManager';
 
 const MessageList = (props) => {
     const [messages, setMessages] = useState([]);
-
+    
     const getMessages = () => {
         return APIManager.GetAll("messages").then(messagesFromAPI => {
             setMessages(messagesFromAPI)

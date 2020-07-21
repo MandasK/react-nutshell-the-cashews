@@ -1,8 +1,16 @@
 const remoteURL = 'http://localhost:8088/'
 
+let friendQuery = ``
+
 export default {
     GetAll(str){
+       
         return fetch(`${remoteURL}${str}`)
+        .then(res=>res.json())
+    },
+    GetAllSort(str){
+       console.log(friendQuery)
+        return fetch(`${remoteURL}${str}${friendQuery}`)
         .then(res=>res.json())
     },
     Get(str, id){
@@ -49,7 +57,21 @@ export default {
         })
     },
 
-  
+    SortingbyFriend(friendArray){
+
+         
+        console.log(friendArray)
+        
+        let sortString = ""
+        sortString += `?`
+       
+        for(let friend of friendArray){
+            sortString += `userId=${friend.userId}&`
+        }
+        sortString += `userId=${sessionStorage.activeUserID}`
+        console.log(sortString)
+        friendQuery = sortString
+    },
   
   ////Events
   

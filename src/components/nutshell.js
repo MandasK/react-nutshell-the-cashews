@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ApplicationViews from './ApplicationViews';
+import APIManager from "./Modules/APIManager"
 
 
 
 const Nutshell = (props) => {
 
+  useEffect(() => {
+    APIManager.GetUsersFriends("friends").then((response) =>{
+        
+        console.log(response)
+        APIManager.SortingbyFriend(response)
+        })
+            
+       
+    }, [])
+  
     const isAuthenticated = () => {
       if (
         sessionStorage.getItem("activeUser") !== null ||
@@ -15,6 +26,7 @@ const Nutshell = (props) => {
         return false;
       }
     };
+    
     const [hasUser, setHasUser] = useState(isAuthenticated());
     const setUser = (user) => {
       sessionStorage.setItem("activeUserID", JSON.stringify(user.userId));

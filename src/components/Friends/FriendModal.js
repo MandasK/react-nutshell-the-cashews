@@ -71,7 +71,7 @@ const HandleFriendModal = (props) => {
         </Form>
         <div className="new-friends">
         {filterFriends.map(friend => 
-        <NewFriendCard friend={friend} setFriends={setFriends} friendUpdate={props.friendUpdate} clear={clearSearch} setFilterFriends={setFilterFriends} setNewFriends={setNewFriend} {...props} />
+        <NewFriendCard friend={friend} newFriends={props.newFriends} setFriends={setFriends} friendUpdate={props.friendUpdate} clear={clearSearch} setFilterFriends={setFilterFriends} setNewFriends={setNewFriend} {...props} />
             )}
         
         </div>
@@ -94,6 +94,7 @@ const HandleFriendModal = (props) => {
         </Button>
   
         <HandleFriendModal
+          newFriends={props.newFriends} 
           show={modalShow}
           onHide={() => setModalShow(false)}
           friendUpdate={props.friendUpdate}

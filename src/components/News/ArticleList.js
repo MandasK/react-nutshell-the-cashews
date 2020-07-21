@@ -9,13 +9,14 @@ const ArticleList =(props) => {
     const [articles, setArticles] = useState([]);
     const [article, setArticle] = useState({ userId:parseInt(sessionStorage.activeUserID), title:"", synopsis:"", url:"", date: Date.now(), user: sessionStorage.activeUser})
     const getArticles = () => {
-        return APIManager.GetAll("News").then(articlesFromAPI =>{
+        return APIManager.GetAllSort("News").then(articlesFromAPI =>{
             setArticles(articlesFromAPI)
         });
     };
+    
     const deleteArticle = id => {
         APIManager.Delete("News", id)
-        .then(()=> APIManager.GetAll("News").then(setArticles))
+        .then(()=> APIManager.GetAllSort("News").then((response) => setArticles(response)))
     };
 
     const clearInputs = () => {
@@ -30,7 +31,7 @@ const ArticleList =(props) => {
             alert("Please complete all fields.")
         } else {
             APIManager.Push("News", article)
-            .then(() => APIManager.GetAll("News").then(setArticle));
+            .then(() => APIManager.GetAllSort("News")).then(() => getArticles());
             clearInputs();
 
         } 
@@ -38,6 +39,7 @@ const ArticleList =(props) => {
 
     useEffect(() => {
         getArticles()
+      
     }, [])
     return (
        
