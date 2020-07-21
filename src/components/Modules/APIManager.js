@@ -34,10 +34,18 @@ export default {
         })
     },
 
+    Update(str, id, data){
+        return fetch(`${remoteURL}${str}/${id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+    },
     Delete(str, id){
         return fetch(`${remoteURL}${str}/${id}`, {
             method: 'DELETE'
         })
     }
-
 }

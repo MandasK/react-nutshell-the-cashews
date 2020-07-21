@@ -38,6 +38,18 @@ const ApplicationViews = props => {
                     }
                 }}
             />
+        {/* Messages
+            <Route
+                exact
+                path="/Messages"
+                render={props => {
+                    if(hasUser){
+                        return <Messages {...props} />;
+                    } else {
+                        return <Redirect exact to="/" />
+                     }
+                }}
+            /> */}
         </>
     )
 }
