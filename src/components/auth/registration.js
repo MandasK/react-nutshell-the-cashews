@@ -2,8 +2,6 @@ import React, { useState, useEffect }from "react";
 import { Form, Button, Card} from "react-bootstrap";
 import APIManager from '../Modules/APIManager';
 import "./registration.css";
-
-
 const Register = (props) => {
   
     const [credentials, setCredentials] = useState({ email: "", userName: "", password: ""});
@@ -14,7 +12,6 @@ const Register = (props) => {
         setUsers(response)
       })
     }, [])
-
     const handleRegister = (event) => {
         event.preventDefault();
         const userEmailInputValue = document.getElementById("email").value
@@ -23,7 +20,6 @@ const Register = (props) => {
         const userConfirmPasswordValue = document.getElementById("confirmedPassword").value
         let userNameCheck = true;
         let userEmailCheck = true;
-
         users.forEach(user => {
             if (user.email === userEmailInputValue ) {
                 userEmailCheck = false;
@@ -62,7 +58,6 @@ const Register = (props) => {
                       alert("Retry email")
                       )
             }
-
         
     }
     const handleFieldChange = (event) => {
@@ -70,9 +65,6 @@ const Register = (props) => {
         stateToChange[event.target.id] = event.target.value;
         setCredentials(stateToChange);
     }
-
-
-
     return (
       <div className="registerContainer">
         <Card className="registrationCard">
@@ -136,5 +128,4 @@ const Register = (props) => {
       </div>
     );
 }
-
 export default Register

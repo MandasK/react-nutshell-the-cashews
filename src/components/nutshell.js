@@ -21,6 +21,7 @@ const Nutshell = (props) => {
       sessionStorage.setItem("activeUser", user.userName)
       setHasUser(isAuthenticated())
       console.log(hasUser)
+      console.log(user.userName)
     }
     
     

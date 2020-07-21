@@ -3,11 +3,11 @@ import { Route, Redirect } from 'react-router-dom';
 import Dashboard from './Dashboard/dashboard';
 import Registration from './auth/registration';
 import Login from './auth/login';
+import ArticleList from './News/ArticleList'
 
 const ApplicationViews = props => {
     const hasUser = props.hasUser
     const setUser = props.setUser
-    console.log("hasUser", hasUser)
 
     return (
         <>

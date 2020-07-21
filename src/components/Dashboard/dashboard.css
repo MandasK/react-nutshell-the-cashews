@@ -26,5 +26,7 @@
 }
 
 .dashboardCol {
+    display: flex;
+    flex-direction: row;
     border: 3px purple solid
 }
