@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import APIManager from "../Modules/APIManager";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import "./ArticleForm.css";
 
