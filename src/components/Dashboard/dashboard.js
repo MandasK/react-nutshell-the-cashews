@@ -37,7 +37,7 @@ const Dashboard = props => {
             {/* Changeable dashboard in this  Col */}
             <Col>
             <Container className="dashboardCol">
-                <TaskList />
+                <MessageList />
             </Container>
             
             </Col>

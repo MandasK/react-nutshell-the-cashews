@@ -18,11 +18,7 @@ export default {
         return fetch(`${remoteURL}${str}?_expand=user`)
         .then(res=>res.json())
     },
-
-    Get(str,id) {
-        return fetch(`${remoteURL}${str}/${id}`)
-        .then(res => res.json())
-    },
+    
 
     Push(str, obj){
         return fetch(`${remoteURL}${str}`, {
@@ -48,14 +44,11 @@ export default {
             method: 'DELETE'
         })
     },
-
-  
-  
   ////Events
   
   delete(id) {
     return fetch(`${remoteURL}events/${id}`, {
       method: "DELETE",
     })
-  },
+  }
 };
