@@ -28,7 +28,15 @@
 }
 
 .userCol {
-    margin-top: 1.25rem;
-    margin-left: 1rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
     font-size: 20px;
+}
+
+.friendsCol {
+    margin-left: 2rem;
+}
+
+.navbarCol {
+    margin-top: 1.5rem;
 }

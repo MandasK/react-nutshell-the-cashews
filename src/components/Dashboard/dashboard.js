@@ -68,9 +68,11 @@ const Dashboard = props => {
             // User info and Navbar inside this Row
             <Container fluid className="dashboardContainer">
             <Row className="userAndNavRow">
+              
                 {/* User info in this Col */}
                 <Col md={2} className="userCol">
                     {sessionStorage.activeUser}
+                    <Image className="beandon" src={require("../images/beans.PNG")} roundedCircle />
                 </Col>
                 
                 <Col className="navbarCol">
@@ -98,9 +100,11 @@ const Dashboard = props => {
             // User info and Navbar inside this Row
             <Container fluid className="dashboardContainer">
             <Row className="userAndNavRow">
+             
                 {/* User info in this Col */}
                 <Col md={2} className="userCol">
                     {sessionStorage.activeUser}
+                    <Image className="beandon" src={require("../images/beans.PNG")} roundedCircle />
                 </Col>
                 
                 <Col className="navbarCol">
@@ -126,11 +130,12 @@ const Dashboard = props => {
       }else if(props.tasks){
         return (
             // User info and Navbar inside this Row
-            <Container fluid className="dashboardContainer">
+            <Container fluid className="dashboardContainer"> 
             <Row className="userAndNavRow">
                 {/* User info in this Col */}
                 <Col md={2} className="userCol">
                     {sessionStorage.activeUser}
+                    <Image className="beandon" src={require("../images/beans.PNG")} roundedCircle /> 
                 </Col>
                 
                 <Col className="navbarCol">
@@ -139,6 +144,7 @@ const Dashboard = props => {
             </Row>
             {/* // Friends list and changeable dashboard in this Row */}
             <Row className="friendsAndDashboardRow">
+            <Image className="beandon" src={require("../images/beans.PNG")} roundedCircle />  
                 {/* Firends List in thie Col */}
                 <Col md={2} className="friendsCol">
                     <FriendsList newFriends={refresh} {...props} />

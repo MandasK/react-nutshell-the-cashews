@@ -8,8 +8,7 @@ import "./Event.css";
 
 const EventCard = (props) => {
   return (
-    <Container className={`section__itemCard event--${props.locations.id}`}>
-      <div className="div__card__event">
+    <Container className="eventCardContainer">
         <Card className="Eventcard">
           <Card.Body className="card-Content">
             {/* <picture>
@@ -50,7 +49,6 @@ const EventCard = (props) => {
         </Button>
         </div>
         </Card>
-      </div>
     </Container>
   );
 };
