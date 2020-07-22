@@ -106,7 +106,7 @@ const Register = (props) => {
                 onChange={handleFieldChange}
                 type="password"
                 id="password"
-                placeholder="Password"
+                placeholder="Enter Password"
               />
             </Form.Group>
             <Form.Group>
