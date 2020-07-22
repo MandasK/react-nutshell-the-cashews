@@ -1,53 +1,35 @@
-.eventCard {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0  #283B3b;
-  transition: 0.3s;
-  border-radius: 5px; /* 5px rounded corners */
-  background: #FFF7E7;
-  margin-bottom: 2em;
-  flex: 0 1 24%;
+.articleformLbl{
+  background-color: #fff7e7;
 }
-
-.card-eventsContent {
-  padding: .5em;
-}
-
-.card-eventsContent h3 {
-  margin-top: 0;
-  margin-bottom: .5em;
-  font-weight: bold;
-  color: #E37D64;
-}
-
-.card-eventsContent p {
-  font-size: 80%;
-  color:  #283B3b
-}
-
-.content-eventName {
-  color: #283B3b;
-}
-
-.eventCard button {
-  background-color: #E37D64;
-  border: none;
-  color: #FFF7E7;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  padding: .5em;
-  border-radius: 2px;
-  margin: .1em;
-  width: 100%;
-}
-
 .eventCard button:hover {
   background-color: #E37D64;
   color:#FFF7E7;
 }
-.eventButton.btn.btn-custom {
+.EventSubmitButton {
     background-color: #e37d64;
     color: #fff7e7;
+    height: 38px;
+    margin-top: 2rem;
     
+}
+
+.Eventcard {
+  flex-direction: row;
+    color: #fff7e7;
+    width: 30rem;
+    margin-bottom: 2rem;
+    border: 2px solid #2b3b3b !important;
+    border-radius: 6px !important;
+    background-color: #2b3b3b !important;
+    box-shadow: 0 4px 8px 0 #888888, 0 6px 20px 0 #888888;
+}
+
+.eventDeleteButton .eventEditButton {
+  background-color: #E37D64;
+  color: #FFF7E7;
+
+}
+
+.eventEditButton {
+  margin-left: 2rem;
 }

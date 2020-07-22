@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import MessageCard  from '../Messages/MessageCard';
 import MessageForm from '../Messages/MessageForm';
 import APIManager from '../../components/Modules/APIManager';
+import { Card } from 'react-bootstrap';
 
 const MessageList = (props) => {
     const [messages, setMessages] = useState([]);
@@ -37,7 +38,9 @@ const MessageList = (props) => {
     
     return (
         <>
-        <div>
+        <Card className="messageContainer">
+            
+            <Card.Text className="MessageInputs">
             {messages.map(message =>
                 <MessageCard
                     key={message.id}
@@ -46,7 +49,9 @@ const MessageList = (props) => {
                     />
             )}
             <MessageForm getMessages={getMessages} constructMessage={constructNewMessage} />
-        </div>
+            </Card.Text>
+            
+        </Card>
         </>
     )
 }

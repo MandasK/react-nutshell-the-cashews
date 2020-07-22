@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import APIManager from "../Modules/APIManager";
 import "../Events/Event.css";
+import { Form, Col, Button, Row } from 'react-bootstrap';
 
 const EventForm = props => {
     const [place, setEvent] = useState({ userId: parseInt(sessionStorage.activeUserID) , name: "", date: "", place: "" });
@@ -20,30 +21,49 @@ const EventForm = props => {
 
     return (
         <>
-            <form>
-                <fieldset>
-                    <div>
-                        <input type="text"
+            <Form>
+                <Row className="EventRow">
+                    <Col>
+                    <Form.Group className="eventFormGrp" controlId="name">
+                        <Form.Label className="eventformLbl">Event</Form.Label>
+                        <Form.Control
+                            className="articleFormCtl"
+                            type="text"
                             required onChange={handleFieldChange}
-                            id="name"
-                            placeholder="Enter an Name" />
-                        
-                        <input type="date"
+                            placeholder="Enter a Name" />
+                        </Form.Group>
+                        </Col>
+                        <Col>
+                        <Form.Group className="eventFormGrp" controlId="date">
+                        <Form.Label className="eventformLbl">Date</Form.Label>
+                        <Form.Control
+                            className="articleformLbl"
+                            type="date"
                             required onChange={handleFieldChange}
-                            id="date"
-                            placeholder="Enter an Date" />
-                    
-                        <input type="text"
+                            placeholder="Enter a Date" />
+                        </Form.Group>
+                        </Col>
+                        <Col>
+                        <Form.Group className="eventFormGrp" controlId="place">
+                        <Form.Label className="eventformLbl">Location</Form.Label>
+                        <Form.Control
+                            className="articleformLbl"
+                            type="text"
                             required onChange={handleFieldChange}
-                            id="place"
-                            placeholder="Enter an Location" />
-                        <div>
-                            <button id ="eventButton" type="button" onClick={constructNewestEvent}>
-                                POST</button>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
+                            placeholder="Enter a Location" />
+                        </Form.Group>
+                        </Col>
+                            <Button
+                            className="EventSubmitButton"
+                            variant="custom"
+                             id ="eventButton" 
+                             type="submit" 
+                             onClick={constructNewestEvent}>
+                                Submit
+                            </Button>
+                        </Row>
+                    </Form>
+                
         </>
     
 

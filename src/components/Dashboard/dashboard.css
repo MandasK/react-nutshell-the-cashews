@@ -19,17 +19,16 @@
     color: #fff7e7; 
    
 }
-h4.new-friends{
-    color: #fff7e7; 
-    text-align: left;
-    
+
+
+.beandon {
+    width: 40px;
+    height: 40px;
+    margin-left: .5rem;
 }
 
-input.mr-sm-2.form-control {
-    margin-bottom: 2vw;
-}
-
-h3.new-freind-text {
-    text-align: center;
-    color: #fff7e7; 
+.userCol {
+    margin-top: 1.25rem;
+    margin-left: 1rem;
+    font-size: 20px;
 }

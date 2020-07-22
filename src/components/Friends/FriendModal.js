@@ -3,6 +3,7 @@ import APIManager from "../Modules/APIManager"
 import {Button, Modal, Form, FormControl} from "react-bootstrap"
 
 import {NewFriendCard} from "./NewFriendCard"
+import "./FriendModal.css"
 
 
 const HandleFriendModal = (props) => {
@@ -55,21 +56,17 @@ const HandleFriendModal = (props) => {
 
     return (
       <Modal
+        className="ModalContainer"
         {...props}
         size="lg"
         backdrop="static"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            
-          </Modal.Title>
-        </Modal.Header>
         <Modal.Body>
           <h4 className="new-friends">New Friends</h4>
         <Form inline>
-            <FormControl type="text" placeholder="Search" className=" mr-sm-2" onChange={handleSearchChange} onClick={userFriends} />
+            <FormControl type="text" placeholder="Search" className=" mr-sm-2  friendSearchBar" onChange={handleSearchChange} onClick={userFriends} />
             
         </Form>
         <div className="new-friends">
@@ -80,7 +77,7 @@ const HandleFriendModal = (props) => {
         </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button className="modalCloseButton" variant="custom" onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
     );
