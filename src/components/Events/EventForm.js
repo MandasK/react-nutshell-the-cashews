@@ -29,7 +29,7 @@ const EventForm = props => {
                         <Form.Control
                             className="articleFormCtl"
                             type="text"
-                            required onChange={handleFieldChange}
+                            onChange={handleFieldChange}
                             placeholder="Enter a Name" />
                         </Form.Group>
                         </Col>
@@ -39,7 +39,7 @@ const EventForm = props => {
                         <Form.Control
                             className="articleformLbl"
                             type="date"
-                            required onChange={handleFieldChange}
+                            onChange={handleFieldChange}
                             placeholder="Enter a Date" />
                         </Form.Group>
                         </Col>
@@ -49,7 +49,7 @@ const EventForm = props => {
                         <Form.Control
                             className="articleformLbl"
                             type="text"
-                            required onChange={handleFieldChange}
+                            onChange={handleFieldChange}
                             placeholder="Enter a Location" />
                         </Form.Group>
                         </Col>
