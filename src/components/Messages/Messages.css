@@ -1,9 +1,29 @@
 .postMessageButton.btn.btn-custom {
     background-color: #e37d64;
     color: #fff7e7;
+
 }
 
 .editMessageButton.btn.btn-custom {
     background-color: #e37d64;
     color: #fff7e7;
+    margin-left: 1rem;
+    height: 30px;
+    font-size: 15px;
 }
+
+.messageContainer {
+    width: 75Rem;
+    color: #fff7e7;
+    margin-bottom: 2rem;
+    border: 2px solid #2b3b3b !important;
+    background-color: #2b3b3b !important;
+
+}
+
+.messageForm {
+    color: #fff7e7;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}
+

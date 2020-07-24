@@ -3,6 +3,7 @@ import APIManager from "../Modules/APIManager";
 import EventCard from "../Events/EventCard";
 import EventForm from "../Events/EventForm";
 import "./Event.css";
+import { Container, Row, Col } from "react-bootstrap";
 const EventList = (props) => {
   // The initial state is an empty array
   const [places, setEvents] = useState([]);
@@ -44,11 +45,12 @@ const EventList = (props) => {
   }, []);
   // Finally we use map() to "loop over" the events array to show a list of animal cards
   return (
-    <div className="container-eventCards">
+    <Container className="container-eventCards">
       {/* //add this button above your display of events cards */}
-      <section className="section-eventContent">
+      <Row className="section-eventContent">
         <EventForm placeConstruct={constructNewEvent} />
-      </section>
+      </Row>
+      <Row>
       {places.map((place) => (
         <EventCard
           key={place.id}
@@ -58,7 +60,8 @@ const EventList = (props) => {
           {...props}
         />
       ))}
-    </div>
+      </Row>
+    </Container>
   );
 };
 export default EventList;

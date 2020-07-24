@@ -15,7 +15,7 @@ small {
   nav .container {
     display: flex;
     padding: 0;
-    margin-bottom: 0;
+    margin-bottom: 5rem;
   }
   
   nav .container li {
@@ -37,4 +37,16 @@ small {
   
   .nav-link:hover {
     color: #e37d64;
+  }
+
+  .logoNavbar {
+    width: 60px;
+    height: auto;
+    background-color: #2b3b3b;
+    margin-right: .1rem;
+  }
+
+  .logoNavbarLeft {
+    width:60px;
+    height:auto;
   }

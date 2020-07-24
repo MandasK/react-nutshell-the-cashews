@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import MessageList from '../../components/Messages/MessageList';
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Image } from "react-bootstrap";
 import "./dashboard.css"
 import ArticleList from "../News/ArticleList"
 import TaskList from "../tasks/TaskList"
@@ -8,6 +8,7 @@ import APIManager from "../Modules/APIManager"
 import Navbar from "../Navbar/Navbar"
 import FriendsList from "../Friends/FriendList"
 import EventList from "../Events/EventList"
+
 
 const Dashboard = props => {
     const [friends, setFriends] = useState([])
@@ -38,7 +39,8 @@ const Dashboard = props => {
             <Row className="userAndNavRow">
                 {/* User info in this Col */}
                 <Col md={2} className="userCol">
-                    {sessionStorage.activeUser}
+                    Welcome, {sessionStorage.activeUser}  
+                    <Image className="beandon" src={require("../images/beans.PNG")} roundedCircle />                  
                 </Col>
                 
                 <Col className="navbarCol">
@@ -48,7 +50,7 @@ const Dashboard = props => {
             {/* // Friends list and changeable dashboard in this Row */}
             <Row className="friendsAndDashboardRow">
                 {/* Firends List in thie Col */}
-                <Col md={2} className="friendsCol">
+                <Col md={3} className="friendsCol">
                     <FriendsList newFriends={refresh} {...props} />
                 </Col>
                 {/* Changeable dashboard in this  Col */}
@@ -66,9 +68,11 @@ const Dashboard = props => {
             // User info and Navbar inside this Row
             <Container fluid className="dashboardContainer">
             <Row className="userAndNavRow">
+              
                 {/* User info in this Col */}
                 <Col md={2} className="userCol">
                     {sessionStorage.activeUser}
+                    <Image className="beandon" src={require("../images/beans.PNG")} roundedCircle />
                 </Col>
                 
                 <Col className="navbarCol">
@@ -96,9 +100,11 @@ const Dashboard = props => {
             // User info and Navbar inside this Row
             <Container fluid className="dashboardContainer">
             <Row className="userAndNavRow">
+             
                 {/* User info in this Col */}
                 <Col md={2} className="userCol">
                     {sessionStorage.activeUser}
+                    <Image className="beandon" src={require("../images/beans.PNG")} roundedCircle />
                 </Col>
                 
                 <Col className="navbarCol">
@@ -124,11 +130,12 @@ const Dashboard = props => {
       }else if(props.tasks){
         return (
             // User info and Navbar inside this Row
-            <Container fluid className="dashboardContainer">
+            <Container fluid className="dashboardContainer"> 
             <Row className="userAndNavRow">
                 {/* User info in this Col */}
                 <Col md={2} className="userCol">
                     {sessionStorage.activeUser}
+                    <Image className="beandon" src={require("../images/beans.PNG")} roundedCircle /> 
                 </Col>
                 
                 <Col className="navbarCol">
@@ -137,6 +144,7 @@ const Dashboard = props => {
             </Row>
             {/* // Friends list and changeable dashboard in this Row */}
             <Row className="friendsAndDashboardRow">
+            <Image className="beandon" src={require("../images/beans.PNG")} roundedCircle />  
                 {/* Firends List in thie Col */}
                 <Col md={2} className="friendsCol">
                     <FriendsList newFriends={refresh} {...props} />

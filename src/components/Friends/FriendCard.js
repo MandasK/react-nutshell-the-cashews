@@ -1,6 +1,7 @@
 import React from "react"
-import {Card, Button} from "react-bootstrap"
+import {Card, Button, Row, Image } from "react-bootstrap"
 import APIManager from "../Modules/APIManager"
+import "./FriendCard.css"
 
 
 const FriendCard = props => {
@@ -18,8 +19,13 @@ const FriendCard = props => {
 
     return (
         <>
-        <Card>
-            <h3>{props.friend.user.userName}</h3>
+        <Card className="FriendCardContainer">
+            <Card.Body className="FriendCardBody">
+            <Row>
+            <Card.Text className="friendCardText">
+            {props.friend.user.userName}
+            </Card.Text>
+            <Image className="angelImage" src={require("../images/Brendaangel.PNG")} roundedCircle />
             <Button
               className = "delete-friend-btn"
               variant= "custom"
@@ -30,6 +36,8 @@ const FriendCard = props => {
             >
               X
             </Button>
+            </Row>
+            </Card.Body>
         </Card>
 
         

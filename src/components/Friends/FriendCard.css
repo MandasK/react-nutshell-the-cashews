@@ -1,0 +1,27 @@
+.delete-friend-btn {
+    background-color: #e37d64;
+    color: #fff7e7; 
+    height: 30px;
+    width: 30px;
+}
+
+.FriendCardContainer {
+    width: 50%;
+    border: 1px solid #2b3b3b !important;
+    background-color: #2b3b3b;
+}
+
+.FriendCardText {
+    margin-right: .5rem;
+}
+
+.angelImage {
+    height:30px;
+    width: 30px;
+    margin-left: .3rem;
+    margin-right: .5rem;
+}
+
+.friendCardText {
+    font-size: 20px;
+}

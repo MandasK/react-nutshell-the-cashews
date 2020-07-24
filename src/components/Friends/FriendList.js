@@ -3,6 +3,7 @@ import APIManager from "../Modules/APIManager"
 import {HandleFriendModal, NewFriend} from "./FriendModal"
 import {FriendCard} from "./FriendCard"
 import "../Dashboard/dashboard.css"
+import "./FriendList.css"
 
 
 
@@ -29,7 +30,7 @@ const FriendsList = props => {
     
     return (
     <div className="friend-container">
-        <h2>Friend's List</h2>
+        <h3>Friend's List</h3>
         <NewFriend friendUpdate={friendUpdate} newFriends={props.newFriends} />
 
     <div className="friend-card-container">

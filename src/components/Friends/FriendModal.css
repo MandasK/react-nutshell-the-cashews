@@ -1,0 +1,16 @@
+.ModalContainer {
+    background-color: #2b3b3b;
+    color: #fff7e7;
+}
+
+.friendSearchBar {
+    background-color: #fff7e7;
+    margin-bottom: 1rem;
+}
+
+.modalCloseButton {
+    color: #fff7e7;
+    background-color: #e37d64;
+    width: 60px;
+}
+

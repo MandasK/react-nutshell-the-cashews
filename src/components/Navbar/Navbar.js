@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from 'react-router-dom';
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, } from "react-router-dom";
+import { Image } from "react-bootstrap"; 
 import "./NavBar.css";
 
 const NavBar = props => {
@@ -13,6 +14,7 @@ const NavBar = props => {
     <header>
       <nav className="navBar">
         <ul className="container">
+        <Image className="logoNavbarLeft" src={require("../images/logo2.png")} />
           <li>
             <NavLink className="nav-link" exact to="/Dashboard" disabled activeStyle={{
 
@@ -51,7 +53,7 @@ const NavBar = props => {
                 <li>
                 <NavLink className="nav-link" exact to= "/" onClick={handleLogout}> Logout </NavLink>
               </li>
-             
+              <Image className="logoNavbar" src={require("../images/logo1.png")} />
         </ul>
       </nav>
     </header>

@@ -69,7 +69,7 @@ const Login = (props) => {
           src={require("../images/logo.png")} 
           alt="imgLogo" />
          <Card.Title className="loginWelcome"> 
-         Welcome to Nutshell
+         Welcome to Nutshell.
          </Card.Title>
          <Card.Subtitle className="loginWelcomeSub">
            Your life in a Nutshell.

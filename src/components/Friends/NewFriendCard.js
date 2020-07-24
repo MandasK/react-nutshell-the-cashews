@@ -1,7 +1,8 @@
 import React, {useState} from "react"
-import {Card, Button} from "react-bootstrap"
+import {Card, Button, Container, Row} from "react-bootstrap"
 import APIManager from "../Modules/APIManager"
 import FriendsList from "./FriendList"
+import "./NewFriendCard.css"
 
 
 const NewFriendCard = props => {
@@ -23,8 +24,9 @@ const NewFriendCard = props => {
     
     return (
         <>
-        <Card>
-            <h3 className="new-freind-text">{props.friend.userName}</h3>
+        <Container className="newfriendcontainer">
+            <Row>
+            <p className="new-freind-text">{props.friend.userName}</p>
             <Button
               className = "add-friend-btn"
               variant= "custom"
@@ -34,9 +36,10 @@ const NewFriendCard = props => {
               
               type="submit"
             >
-              Add Friend
+              Add
             </Button>
-        </Card>
+            </Row>
+        </Container>
         
         
 
@@ -48,8 +51,9 @@ const NewFriendCard = props => {
         return (
             <>
             <Card>
-                <h3>{props.friend.userName}</h3>
-                
+            <Card.Text>    
+                {props.friend.userName}
+            </Card.Text>    
             </Card>
             
             
