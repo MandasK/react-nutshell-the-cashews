@@ -1,68 +1,83 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Nutshell
 
-## Available Scripts
+Your life in a nutshell! 
 
-In the project directory, you can run:
+## Team
+Tyler Hilliard -- Login/Registration/Friends
 
-### `npm start`
+Amanda King -- News and Tasks
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Brandon Wheatley -- Messages
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Tasha Lane -- Events
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Steps to get started:
+1. `git clone git@github.com:MandasK/react-nutshell-the-cashews.git`
+1. `cd` into the directory it creates
+1. `mkdir api`
+1. `touch api/database.json`
+1. `json-server -p 8088 -w api/database.json`
+1. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm run build`
+## Setup: Follow these steps exactly
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone this repository
+2. Load or create a `database.json` file in the `api` 
+3. run `json-server -p 8088 -w database.json` from `api` directory in the terminal
+4. `serve` from `src` in the terminal
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Summary
 
-### `npm run eject`
+Nutshell is a new product offering. It's a dashboard for people to use to organize their daily tasks, events, news articles, friends, and chat messages. Full functionality exists with this version.This app does not utilize real authentication. It is a simulation of it using React, Session Storage, and a local database.json file. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Skills Utilized
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Functions
+2. Databases/API
+3. Github
+4. Objects
+5. CSS/Flexbox
+6. Array methods
+7. Components
+8. Handling user events
+9. Implementing CRUD operations
+10. Relational data
+11. ERDs
+12. Factory Functions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## How to Login
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Select "Create a new account" from homepage, and enter in a valid username, email, and password.
 
-## Learn More
+OR if you have already created an account, enter a valid username and password in the login form and select "Sign In".
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## How to use Messages
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Type a message into the message input field and click submit.
+* If you would like to edit your own message, select the "Edit" button in the message.
+* After selecting "Edit", you can go into the new message input to type in a new message. Once you are done, select submit updated edited message.
+* If you would like to delete your own message, select the "Delete" button and the messsage will be removed.
 
-### Code Splitting
+## How to use Tasks
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* To create a new task enter the name of the task in the task input field, and provide a date you would like the task to be completed by then select "Submit" to save it.
+* To delete an event, select the "Remove" button.
+* Once a user has completed a task they can mark the "check when Complete" button, and the task will be removed from the list.
 
-### Analyzing the Bundle Size
+## How to use Articles
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* To create a new news article enter the name of the article in the task input field, and provide a date you would like the article to be completed by then select "Submit" to      save it.
+* To delete an article, select the "Remove" button.
 
-### Making a Progressive Web App
+## How to use Events
+* Input an event name, date, and location in the input fields and select "Submit Event" to save to Upcoming Events.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## How to use Friends
+* In the search field type the name of a user then select "Add Friend".
 
-### Advanced Configuration
+## How to Logout
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Click the "Logout" button at the top of the page to logout and return to the login page.
